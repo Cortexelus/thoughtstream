@@ -1,0 +1,65 @@
+<!doctype html>
+
+<head>
+  <title>CodeMirror: Code Folding Demo</title>
+  <meta charset="utf-8"/>
+
+  <link rel="stylesheet" href="externals/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="externals/codemirror/addon/fold/foldgutter.css" />
+  <script src="externals/codemirror/lib/codemirror.js"></script>
+  <script src="externals/codemirror/addon/fold/foldcode.js"></script>
+  <script src="externals/codemirror/addon/fold/markdown-fold.js"></script>
+  <script src="externals/codemirror/addon/fold/indent-fold.js"></script>
+  <script src="externals/codemirror/mode/markdown/markdown.js"></script>
+  <style type="text/css">
+    html { height: 100%; }
+    body { margin: 0; padding: 0; height: 100%; background-color: #ddd}
+    /* Height / width / positioning can be customized for your use case.
+       For demo purposes, we make firepad fill the entire browser. */
+    .CodeMirror {
+      position: absolute; left: 0; top: 34px; bottom: 0; right: 0; height: auto;
+    }
+
+    #filter {
+      height: 23px; width: 400px; margin: 2px; border: 2px solid #ddd;
+    }
+
+    #top {
+      position: absolute; left: 0px; top: 0px; width: 100%; height: auto;
+    }
+
+
+    .CodeMirror {border-top: 0px solid black; border-bottom: 0px solid black;}
+  </style>
+</head>
+
+<body>
+  <div id="top">
+    <input type="text" id="filter" placeholder="Filter" />
+  </div>
+  <textarea id="thoughts" name="code"></textarea>
+
+  <script id="script">
+
+window.onload = function() {
+  
+  var thoughts = document.getElementById("thoughts");
+  thoughts.value = "# Foo\n## Bar\n\nblah blah\n\n## Baz\n\nblah blah\n\n# Quux\n\nblah blah\n"
+
+  window.editor = CodeMirror.fromTextArea(thoughts, {
+    mode: "markdown",
+    lineNumbers: false,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); },
+      "Ctrl-W": function(cm){ 
+            cm.operation(function() {
+              for (var i = cm.firstLine(), e = cm.lastLine(); i <= e; i++)
+                cm.foldCode(CodeMirror.Pos(i, 0), null, "fold");
+            });
+       }
+    }
+  });
+};
+  </script>
+</article>
+</body>
