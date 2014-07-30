@@ -6,7 +6,14 @@
 .cm-xn-maptag { font-weight: bold; color: #E52641; }
 .cm-xn-relatestag { font-weight: bold; color: #A726E5; }
 
-.cm-xn-hashtag, .cm-xn-persontag, .cm-xn-maptag {
+.cm-xn-hashtag, .cm-xn-persontag, .cm-xn-maptag, .cm-xn-relatestag {
+	cursor: pointer;
+}
+
+.relatedIdeaNode { 
+	color: #A726E5;
+	border: 1px solid #562170;
+	background-color: #3D015A;
 	cursor: pointer;
 }
 
