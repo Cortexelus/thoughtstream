@@ -1,0 +1,45 @@
+
+/* code mirror syntax styling */
+/* #428bca */
+.cm-xn-hashtag { font-weight: bold; color: #48c; }
+.cm-xn-persontag { font-weight: bold; color: #2b4; }
+.cm-xn-maptag { font-weight: bold; color: #E52641; }
+.cm-xn-relatestag { font-weight: bold; color: #A726E5; }
+
+.cm-xn-hashtag, .cm-xn-persontag, .cm-xn-maptag {
+	cursor: pointer;
+}
+
+.cm-xn-link { color: #FFB600;  } 
+.cm-xn-link:hover { color: #D8A320; cursor: pointer;}  
+.xn-suggestionbox-bg { background-color: white;}
+
+
+/*background-image: linear-gradient(to bottom, #eee 0%, white 100%);*/ 
+
+
+.xn-newidea-line-a {background-color: rgb(40, 39, 36);}
+.xn-currentidea-line-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-1-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-2-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-3-a {background-color: rgb(40, 39, 36);}
+
+.xn-newidea-line-b {background-color: rgb(19, 19, 17);}
+.xn-currentidea-line-b {background-color: rgb(19, 19, 17);}
+.xn-empty-line-1-b {background-color: rgb(19, 19, 17);}
+.xn-empty-line-2-b {background-color: rgb(20, 19, 17);}
+.xn-empty-line-3-b {background-color: rgb(20, 19, 17);}
+
+
+
+
+
+
+/*
+
+.xn-empty-line {background-color: #eee;}
+.xn-empty-line-2 {background-color: white;}
+.xn-newidea-line {background-color: #eee ;}
+.xn-currentidea-line{background-color: #eee ;}
+
+*/

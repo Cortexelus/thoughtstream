@@ -1,55 +1,129 @@
 <!doctype html>
 
 <head>
-  <title>CodeMirror: Code Folding Demo</title>
+  <title>Thoughtstreamer</title>
   <meta charset="utf-8"/>
 
   <link rel="stylesheet" href="externals/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="externals/codemirror/theme/monokai.css">
   <link rel="stylesheet" href="externals/codemirror/addon/fold/foldgutter.css" />
+  <link rel="stylesheet" href="mode-thoughtstream.css" />
   <script src="externals/codemirror/lib/codemirror.js"></script>
   <script src="externals/codemirror/addon/fold/foldcode.js"></script>
+  <script src="externals/codemirror/addon/fold/foldgutter.js"></script>
   <script src="externals/codemirror/addon/fold/markdown-fold.js"></script>
   <script src="externals/codemirror/addon/fold/indent-fold.js"></script>
   <script src="externals/codemirror/mode/markdown/markdown.js"></script>
+  <script src="mode-thoughtstream.js"></script> 
+
+
+  <script src="jquery-2.1.1.js"></script>
+
   <style type="text/css">
     html { height: 100%; }
-    body { margin: 0; padding: 0; height: 100%; background-color: #ddd}
+    body { 
+      margin: 0; padding: 0; height: 100%; 
+      color: rgb(203, 203, 203); 
+      background-color: rgb(30, 29, 26);
+    }
     /* Height / width / positioning can be customized for your use case.
        For demo purposes, we make firepad fill the entire browser. */
     .CodeMirror {
       position: absolute; left: 0; top: 34px; bottom: 0; right: 0; height: auto;
+      background-color: rgb(30, 29, 26);
+      color: rgb(203, 203, 203);
+    }
+
+    .CodeMirror div.CodeMirror-cursor{
+      border-left: 1px solid white;
+    }
+    .CodeMirror-gutters{
+      background-color: inherit;
+      border: inherit;
+    }
+    .CodeMirror-linenumber{
+      color: #808080;
     }
 
     #filter {
-      height: 23px; width: 400px; margin: 2px; border: 2px solid #ddd;
+      height: 23px; width: 400px; margin: 2px; border: 2px solid #222; background-color: #333;
+      color: inherit;
     }
 
     #top {
       position: absolute; left: 0px; top: 0px; width: 100%; height: auto;
     }
+    .CodeMirror-linewidget{
+      overflow-y: hidden;
+    }
+    .submitIdeaButton {
+        border: 0px outset rgb(59, 57, 57);
+        /* background-color: rgb(29, 19, 19); */
+        color: rgb(62, 62, 62);
+        text-decoration: none;
+        padding: 0 4px;
+        overflow
+        /*margin:  0 5px;*/
+    }
 
 
     .CodeMirror {border-top: 0px solid black; border-bottom: 0px solid black;}
+    #upvote {margin-left: 4px; border: 3px #999 solid; background-color: #ddd; padding: 7px;}
+
+    /*.cm-tab { text-indent: initial;}*/
+    .CodeMirror pre > * { text-indent: 0px; }
+
   </style>
 </head>
 
 <body>
   <div id="top">
-    <input type="text" id="filter" placeholder="Filter" />
+    <input type="text" id="filter" placeholder="Filter (does nothing yet)" />
   </div>
-  <textarea id="thoughts" name="code"></textarea>
+  <textarea id="thoughts" name="code" ></textarea>
 
   <script id="script">
 
+var cm = null; 
+var htmlNode = null;
+var submitWidget = null;
 window.onload = function() {
   
   var thoughts = document.getElementById("thoughts");
-  thoughts.value = "# Foo\n## Bar\n\nblah blah\n\n## Baz\n\nblah blah\n\n# Quux\n\nblah blah\n"
+  thoughts.value = "#hashtag @suggestionbox ~person http://imreallyawesome.com \n\nAttached to this line is an HR! cool! see what happens when you hit enter in the line above!  \n\n\n\nbelow this is an h1, the lines below it make room for its height\nnotice that the cursor skips over it when you move it with arrow keys\n\n\n\nplz upvote my idea plz plz\n\nblahblahblah\n\n\
+0 sflkdsjfhsflkdsjfhsflkdsjfhsflkdsjfhsflkdsjfh sflkdsjfhsflkdsjfhsflkdsjfh sflkdsjfhsflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh sflkdsjfh\n\
+\tA lfksjhdsf sflhs kdjfldkj hlk jfhl kjdhlskj dshfl ksdjfhslfkjsdhflskfjhslkjhdfl fkgjdfhlgksfjhgdf lkgjhdgldskfjhg ldskfjghlsfkgjhslfgk djhglkdsf jg ldks fjhdl fksdhsldkfsjdhflsdkfjsdhflsdkfds dslkfjdhfl skjfsh lkf jhlds kfjhdls kjfh lfksd jhflsdk jfhsdfl kdsjhkjf dhslfk sdjhfdls kjdfhs\n\
+\t\tB lkdjfhds lskdjhfdls kfjsfhsdkfjdhsk jshksd jhsdl kjdsfdjhksd jdlsdjhl kf hfk jfhsdl kfjsdhdl kfjdhslkfdsj hfdslk fjhsdfl ksdj fhds sldjkfh dlskfjfhlkdj hfs fsdlkfjsdh sldkfjhds flkjshdf lskdjfh sdf\n\
+\t\t\tC dlkjfhsdlkfjdhfl sdkfjhsdlfkjsdhflsdkfjhsdlfksjhdflkdjfhlsdfkjsdhfls dkfjhsdlfkj sdhflsdkfjshdlfksdjf hsdlkfjsdhflskdjfhsdlfkjhsdf lkjdfshlskdfjhsldfkjhsdl\n\
+\t\t\t\tldkfjh lsdkhfjdlskfjdfhk jfhdlfk jhls kdjfdhslfkj dshflds kjfhdls kfjsh fldskj dhlskfjdhslfsd kjfhsdl fksdjhdlkjdhslkfj sdhflds kjfhdlss ldkfjh lsdkhfjdlskfjdfhk jfhdlfk jhls kdjfdhslfkj dshflds kjfhdls kfjsh fldskj dhlskfjdhslfsd kjfhsdl fksdjhdlkjdhslkfj sdhflds kjfhdlss ldkfjh lsdkhfjdlskfjdfhk jfhdlfk jhls kdjfdhslfkj dshflds kjfhdls kfjsh fldskj dhlskfjdhslfsd kjfhsdl fksdjhdlkjdhslkfj sdhflds kjfhdlss\n\
+\t\t\t\tldkfjh lsdkhfjdlskfjdfhk jfhdlfk jhls kdjfdhslfkj dshflds kjfhdls kfjsh fldskj dhlskfjdhslfsd kjfhsdl fksdjhdlkjdhslkfj sdhflds kjfhdlss dkfjh lsdkhfjdlskfjdfhk ldkfjh lsdkhfjdlskfjdfhk ldkfjh lsdkhfjdlskfjdfhk ldkfjh lsdkhfjdlskfjdfhk\n\
+\t\t\t\tdsfjhdfs kjh kj fhds\n\
+\t\t\t\tdsfjhdfs kjh kj fhds j\n\
+\t\t\t\t\tF dlkjfhsdlkfjhfdl kjfhlkfjhsfldskjfdhslkdsjfshlkjhflkfjshlfksjfhslkfjhfslkdjshlfdksjfhdslkdjshfldskfjdshfldskjfhdslkfjdshlfksjfhlkfjshlfksdjhflkdsjhfslsjfhlskfjhsdlfkjsdhfldskfjhsdlfksjfhlksd\n\
+\t\t\t\tyeah so that's the end of C\n\
+\t\t\tyeah so..\n\
+\t\t\tthat's the end of B\n\
+\t\tyeah so that's the end of A\n\
+\tyeah so that's the end of 0\n\
+0000000\n\n\n"
 
-  window.editor = CodeMirror.fromTextArea(thoughts, {
-    mode: "markdown",
-    lineNumbers: false,
+  cm = CodeMirror.fromTextArea(thoughts, {
+    mode: "xn",
+    /*theme: "monokai",*/
+    lineNumbers: true,
     lineWrapping: true,
+    foldGutter: true,
+    lineWrapping: true,
+    smartIndent: true,
+    autoFocus: true,
+    indentWithTabs: true,
+    tabsize: 4,
+    /*workTime: 1,
+    workDelay: 1,
+    pollInterval: 10,
+    historyEventDelay: 10,*/
+    //cursorHeight: 0.75, /* changed because of line padding */
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
     extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); },
       "Ctrl-W": function(cm){ 
             cm.operation(function() {
@@ -59,7 +133,171 @@ window.onload = function() {
        }
     }
   });
+
+  
+
+  buttonNode = document.createElement("span");
+  buttonNode.className = "submitIdeaButton";
+  buttonNode.appendChild(document.createTextNode("test "));
+
+  //submitWidget = null; 
+  cm.on("cursorActivity", function(line, changeObjb){
+    if(submitWidget) submitWidget.clear();
+    var lineCh = cm.getCursor("head")
+    var lineNum = lineCh.line;
+    var lineObj = cm.getLineHandle(lineNum);
+    var bgc = lineObj.styleClasses.bgClass; 
+    console.log(lineNum, bgc);
+
+    /*
+    if(bgc.substring(0,13)=="xn-empty-line"){
+      // this is an empty line. 
+      nextLine = cm.getLineHandle(lineNum+1);
+      if(!nextLine){
+        // we're at the very end white space, no idea here
+        return;
+      }else if(nextLine && nextLine.styleClasses.bgClass.substring(0,13)=="xn-empty-line"){
+        // we're in between ideas, no idea here
+        return;
+      }
+    }
+    while( lineNum < cm.lineCount()){ // find the bottom of this idea
+      lineNum++;
+      lineObj = cm.getLineHandle(lineNum);
+      if(!lineObj){
+        lineNum--;
+        break; // no more lines, we're at the bottom of the document (and the idea)
+      }
+      bgc = lineObj.styleClasses.bgClass; 
+      if(bgc.substring(0,10)=="xn-newidea"){
+        // we landed on a new idea, now we back up through the white space until we land on text again
+        lineNum--;
+        while( lineNum >= 0){
+          lineObj = cm.getLineHandle(lineNum);
+          bgc = lineObj.styleClasses.bgClass; 
+          if(bgc.substring(0,14) == "xn-currentidea"){
+            // aha! here's the line. 
+            break; 
+          }else{
+            lineNum--; // back up another line
+            continue;
+          }
+        }
+        break;
+      }else{
+        lineNum++;
+        continue; // the bottom of the idea, maybe! 
+      }
+    }*/
+
+    submitWidget = cm.addLineWidget(lineNum,buttonNode, {showIfHidden: true })
+  })
+
+
+
+  //codemirror.net/demo/indentwrap.html
+  var charWidth = cm.defaultCharWidth(), basePadding = 4;
+  
+  cm.on("renderLine", function(cm, line, elt) {
+    var column = CodeMirror.countColumn(line.text, null, cm.getOption("tabSize"));
+    var off = column * charWidth;
+    var lineNumber = cm.getLineNumber(line);
+    var bgc = line.styleClasses.bgClass;
+
+    var nextLine = cm.getLineHandle(lineNumber+1);
+
+    //cm.addLineWidget(lineNumber,buttonNode, {showIfHidden: true})
+    /*
+    if(nextLine && nextLine.hasOwnProperty("styleClasses")){
+      var nbgc = nextLine.styleClasses.bgClass;
+      //console.log("render", line, elt);
+      if(bgc == "xn-empty-line"){
+        elt.style.backgroundColor = "red"
+      }else  if(bgc == "xn-empty-line-2"){
+        elt.style.backgroundColor = "blue"
+      }else if(bgc == "xn-newidea-line"){
+        elt.style.backgroundColor = "green"
+
+      }else if(bgc == "xn-currentidea-line"){
+        elt.style.backgroundColor = "#0f0"
+      }
+      if(bgc == "xn-empty-line" && nbgc == "xn-empty-line-2"){
+        elt.style.backgroundColor = "blue"
+      }else if(bgc == "xn-empty-line" && nbgc == "xn-newidea-line" ){
+        elt.style.backgroundColor = "blue"
+      }
+    }*/
+
+    elt.style.textIndent = "-" + off + "px";
+    elt.style.paddingLeft = (basePadding + off) + "px";
+    /* color unique ideas */
+    //elt.style.backgroundColor = "#eee"
+
+
+    //elt.style.paddingBottom = "5px" /* padding space between lines, so as to distinguish new lines from wrapped text */ 
+
+    /* alternating colored lines vertically / horizontally 
+    if (parseInt(column) % 8 == 0){
+      if( cm.getLineNumber(line) % 2 == 0){
+        bg = "rgb(255,255,255)" 
+      }else{
+        bg = "rgb(248,248,248)"
+      }
+    }else{
+      if( lineNumber % 2 == 0){
+        bg = "rgb(210,210,210)" 
+      }else{
+        bg = "rgb(222,222,222)"
+      }
+    }
+
+    elt.style.backgroundImage = "linear-gradient(to right, rgb(255, 255, 255) 0px, rgb(255, 255, 255) "+off+"px, "+bg+" 0%, rgb(255, 255, 255) 100%)"
+    //elt.style.backgroundImage = "linear-gradient(to right, rgb(255, 255, 255) 0px, rgb(255, 255, 255) "+off+"px, "+bg+" 0%, rgb(255, 255, 255) 100%)"
+    //*/
+  });
+  cm.refresh();
+
+
+  // create a node
+  htmlNode =document.createElement("h1");
+  text =  document.createTextNode("idea overflow 4eva");
+  htmlNode.appendChild(text)
+  hrNode = document.createElement("hr")
+
+
+  divNode =document.createElement("div");
+  link = document.createElement("a");
+  link.id = "upvote";
+  link.href = "#";
+  link.appendChild(document.createTextNode("upvote"));
+  divNode.appendChild(link)
+
+
+  // call this after you initialized the editor.
+  // the position must be like this {ch: YourCharecterNumber, line: YourLineNumber}
+  //cm.addLineWidget(6,htmlNode, {showIfHidden: true})
+  //cm.addLineWidget(2,hrNode, {showIfHidden: true})
+  //cm.addLineWidget(11,divNode, {showIfHidden: true})
+
+  
+
+
+  //cm.replacedWith()
+
+
+  $(".CodeMirror").on("click",".cm-xn-hashtag, .cm-xn-persontag, .cm-xn-maptag ",function(e){
+    var tagText = e.currentTarget.innerHTML;
+    $("#filter").val(tagText)
+  })
+  $(".CodeMirror").on("click",".cm-xn-link ",function(e){
+    var url = e.currentTarget.innerHTML.trim()
+    window.open(url)
+  })
 };
+
+
+
+
+
   </script>
-</article>
 </body>
