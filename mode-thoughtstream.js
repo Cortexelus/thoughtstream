@@ -44,22 +44,43 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 			stream.eatWhile(/[A-Za-z0-9-_]/);
 			//var word = stream.current();
 			newIdeaFlag = startOfLine && state.blankLinesAbove>=1; // #hashtag starts line after 1 one blank line => new idea
-			style = "xn-hashtag"
+			if(stream.current().length==1){ // just ~
+				style="xn-hashtag-incomplete" 
+			}else{
+				style = "xn-hashtag";
+			}
 		}else if (ch == "~") {
 			stream.eatWhile(/[A-Za-z0-9-_@\.]/);
 			//var word = stream.current();
 			newIdeaFlag = startOfLine && state.blankLinesAbove>=1; // ~person starts line after 1 blank line => new idea
-			style = "xn-persontag";
+			if(stream.current().length==1){ // just ~
+				style="xn-persontag-incomplete" 
+			}else{
+				style = "xn-persontag";
+			}
 		}else if (ch == "@") {
 			stream.eatWhile(/[A-Za-z0-9-_]/);
 			//var word = stream.current();
 			newIdeaFlag = startOfLine && state.blankLinesAbove>=1; // @map starts line after 1 blank line => new idea
-			style = "xn-maptag";
+			if(stream.current().length==1){ // just ~
+				style="xn-maptag-incomplete" 
+			}else{
+				style = "xn-maptag";
+			}
 		}else if(ch=="<") {
 			if(stream.eatWhile(">")){
-				
-				stream.eatWhile(/[A-Za-z0-9-_]/);
-				style="xn-relatestag"
+				if(stream.eatWhile(/[A-Za-z0-9\/\+]/) //base64 
+				&& stream.eatWhile(/[\"]/) 
+				&& stream.eatWhile(/[^\"]/)
+				&& stream.eatWhile(/[\"]/)){
+					style="xn-relatestag"
+				}else{
+					if(stream.current().length==2){ // just <>
+						style="xn-relatestag-incomplete" 
+					}else{
+						style = ""
+					}
+				}
 			}else{
 				style = ""
 			}
