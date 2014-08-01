@@ -69,7 +69,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 			}
 		}else if(ch=="<") {
 			if(stream.eatWhile(">")){
-				if(stream.eatWhile(/[A-Za-z0-9\/\+]/) //base64 
+				if(stream.eatWhile(/[A-Za-z0-9-_]/) //base64 with -_ as 62 and 63
 				&& stream.eatWhile(/[\"]/) 
 				&& stream.eatWhile(/[^\"]/)
 				&& stream.eatWhile(/[\"]/)){
@@ -78,7 +78,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 					if(stream.current().length==2){ // just <>
 						style="xn-relatestag-incomplete" 
 					}else{
-						style = ""
+						style = "xn-relatestag-incomplete"
 					}
 				}
 			}else{
@@ -136,3 +136,5 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
   
   };
 });
+
+

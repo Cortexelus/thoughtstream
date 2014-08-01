@@ -15,13 +15,16 @@
   <script src="externals/codemirror/addon/fold/indent-fold.js"></script>
   <script src="externals/codemirror/mode/markdown/markdown.js"></script>
 
+
+   <script src="cm-active-idea.js"></script>
+
    <script src="externals/codemirror/addon/hint/show-hint.js"></script>
    <script src="cm-xn-hint.js"></script>
    <script src="externals/codemirror/addon/display/placeholder.js"></script>
    <link rel="stylesheet" href="externals/codemirror/addon/hint/show-hint.css">
 
   <script src="mode-thoughtstream.js"></script> 
-
+  <script src="util.js"></script>
 
   <script src="jquery-2.1.1.js"></script>
 
@@ -146,11 +149,12 @@ window.onload = function() {
     /*theme: "monokai",*/
     lineNumbers: true,
     lineWrapping: true,
+
     foldGutter: true,
-    lineWrapping: true,
     smartIndent: true,
     autoFocus: true,
     indentWithTabs: true,
+    styleActiveLine: true,
     tabsize: 4,
     /*workTime: 1,
     workDelay: 1,
@@ -166,9 +170,9 @@ window.onload = function() {
                 cm.foldCode(CodeMirror.Pos(i, 0), null, "fold");
             });
        },
-       "Tab": function(cm){
+       /*"Tab": function(cm){
           //showAutocompletePopup(cm, null);
-        },
+        },*/
         "'#'": function(cm){
           setTimeout(function(){ showAutocompletePopup(cm, "xn-hashtag-incomplete") },40) 
           // why timeout? because this fires before the textarea receives character
@@ -223,8 +227,10 @@ window.onload = function() {
     var lineNum = lineCh.line;
     var lineObj = cm.getLineHandle(lineNum);
     var bgc = lineObj.styleClasses.bgClass; 
-    //console.log(lineNum, bgc);
+    lineObj.styleClasses.bgClass = "";
 
+    console.log(lineNum, bgc);
+    //cm.removeLineClass(lineNum, "background","selected")
 
     /*
     if(bgc.substring(0,13)=="xn-empty-line"){
@@ -280,7 +286,7 @@ window.onload = function() {
     var off = column * charWidth;
     var lineNumber = cm.getLineNumber(line);
     var bgc = line.styleClasses.bgClass;
-
+    console.log("render", lineNumber, bgc);
     var nextLine = cm.getLineHandle(lineNumber+1);
 
     //cm.addLineWidget(lineNumber,buttonNode, {showIfHidden: true})

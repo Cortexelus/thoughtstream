@@ -43,10 +43,11 @@
 	}else if(token.type.indexOf("xn-relatestag")>-1){
 		string = token.string.slice(2)
 		for (var name in tags) if (tags[name].indexOf(string)!=-1){
-			var id = name // convert to base64 if necessary
+			var id = base10_to_base64(name) // convert to base64 if necessary
 			var completion = {
 				text: "<>"+id+"\""+tags[name]+"\"",
 				displayText: tags[name]
+
 			};
 			if(tags[name].indexOf(string)==0){
 				list1.push(completion);

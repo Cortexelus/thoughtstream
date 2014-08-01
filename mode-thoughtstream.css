@@ -24,12 +24,21 @@
 
 /*background-image: linear-gradient(to bottom, #eee 0%, white 100%);*/ 
 
+.CodeMirror-activeline-background { background: rgb(40, 39, 36);}
 
+/*
 .xn-newidea-line-a {background-color: rgb(40, 39, 36);}
 .xn-currentidea-line-a {background-color: rgb(40, 39, 36);}
 .xn-empty-line-1-a {background-color: rgb(40, 39, 36);}
 .xn-empty-line-2-a {background-color: rgb(40, 39, 36);}
 .xn-empty-line-3-a {background-color: rgb(40, 39, 36);}
+
+.xn-newidea-line-b {background-color: rgb(40, 39, 36);}
+.xn-currentidea-line-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-1-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-2-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-3-b {background-color: rgb(40, 39, 36);}*/
+/*
 
 .xn-newidea-line-b {background-color: rgb(19, 19, 17);}
 .xn-currentidea-line-b {background-color: rgb(19, 19, 17);}
@@ -37,7 +46,7 @@
 .xn-empty-line-2-b {background-color: rgb(20, 19, 17);}
 .xn-empty-line-3-b {background-color: rgb(20, 19, 17);}
 
-
+*/
 
 
 
