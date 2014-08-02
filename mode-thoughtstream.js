@@ -74,6 +74,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 				&& stream.eatWhile(/[^\"]/)
 				&& stream.eatWhile(/[\"]/)){
 					style="xn-relatestag"
+					
 				}else{
 					if(stream.current().length==2){ // just <>
 						style="xn-relatestag-incomplete" 
@@ -99,7 +100,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 	}
 	if(startOfLine){
 		// every other idea gets an alternating css class
-		return style + " line-background-xn-" + (newIdeaFlag?"newidea-line-":"currentidea-line-") + state.alternate
+		return style + " line-background-xn-" + (newIdeaFlag?"newidea-line ":"currentidea-line ") + "line-background-xn-"+state.alternate
 	}
 	return style
   };
@@ -109,11 +110,11 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
   	state.blankLineCount = state.blankLineCount + 1;
 
     if(state.blankLineCount>=3){
-  		return "xn-blankline line-background-xn-empty-line-3-" + state.alternate;
+  		return "xn-blankline line-background-xn-empty-line-3 " + "line-background-xn-"+state.alternate;
   	}else if(state.blankLineCount==2){
-  		return "xn-blankline line-background-xn-empty-line-2-" + state.alternate;
+  		return "xn-blankline line-background-xn-empty-line-2 " + "line-background-xn-"+state.alternate;
     }else{
-  		return "xn-blankline line-background-xn-empty-line-1-" + state.alternate;
+  		return "xn-blankline line-background-xn-empty-line-1 " + "line-background-xn-"+state.alternate;
   	}
   }
   

@@ -54,13 +54,49 @@
       var line = cm.getLineHandleVisualStart(range.head.line);
       if (active[active.length - 1] != line) active.push(line);
     }
-    // highlight the currently selected idea ~cj
+
+    /* highlight the whole line*/
+    var ns = [];
+    var new_active = []
     for (var i = 0; i < active.length; i++) {
       var line = active[i];
       var lineNumber = cm.getLineNumber(line);
-      
+      line = cm.getLineHandle(lineNumber);
+      var bgc = line.styleClasses      
+      if(!line || !bgc) break; 
+      var idea_alternate = bgc.bgClass.indexOf("xn-b") > -1; // a or b?
+
+      // scan up until you find an idea with different alternating bgclass
+      for(var n = lineNumber+1; n < cm.lineCount(); n++){
+        var line = cm.getLineHandle(n); 
+        if(!line || !line.styleClasses) continue;
+        var line_alternate = line.styleClasses.bgClass.indexOf("xn-b") > -1;
+
+        ns.push([n, idea_alternate])
+        if(idea_alternate == line_alternate){
+          new_active.push(line);
+        }else{
+          break;
+        }
+      }
+
+      // scan down until you find an idea with different alternating bgclass
+      for(var n = lineNumber-1; n>=0 ;n--){
+        var line = cm.getLineHandle(n); 
+        if(!line || !line.styleClasses) continue;
+        var line_alternate = line.styleClasses.bgClass.indexOf("xn-b") > -1;
+        ns.push([n, idea_alternate])
+        if(idea_alternate == line_alternate){
+          new_active.push(line);
+        }else{
+          break;
+        }
+      }
+
     }
+    active = active.concat(new_active)
     active = $.unique(active)
+    /* done highlightin the whole idea*/
 
     if (sameArray(cm.state.activeLines, active)) return;
     cm.operation(function() {

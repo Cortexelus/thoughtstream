@@ -224,12 +224,46 @@ window.onload = function() {
   cm.on("cursorActivity", function(line, changeObjb){
     if(submitWidget) submitWidget.clear();
     var lineCh = cm.getCursor("head")
-    var lineNum = lineCh.line;
-    var lineObj = cm.getLineHandle(lineNum);
-    var bgc = lineObj.styleClasses.bgClass; 
-    lineObj.styleClasses.bgClass = "";
+    var lineNumber = lineCh.line;
+    var line = cm.getLineHandle(lineNumber);
+    var bgc = line.styleClasses.bgClass; 
+    //lineObj.styleClasses.bgClass = "";
 
-    console.log(lineNum, bgc);
+    console.log(lineNumber, bgc);
+
+    for(var i=0; i<line.styles.length; i++){
+      var s = line.styles[i]
+      if(s == "xn-relatestag"){
+        if(i>=3){
+          beginCh = line.styles[i-3]
+          endCh = line.styles[i-1]
+        }else if(i==2){
+          beginCh = 0
+          endCh = line.styles[1]
+        }else{
+          continue;
+        }
+        var relatedIdeaNode = document.createElement("span");
+        relatedIdeaNode.className = "relatedIdeaNode";
+        // filter title change text to <>Title 
+        var title = cm.getRange({line: lineNumber, ch: beginCh}, {line: lineNumber, ch: endCh})
+        newtitle = "<>" + title.substring(title.indexOf("\"")+1,title.length-1)
+        relatedIdeaNode.appendChild(document.createTextNode(newtitle));
+        var id = title.substring(2, title.indexOf("\""));
+        relatedIdeaNode.addEventListener('click',function(){alert("idea id = "+id)}, false)
+        // markText atomic;true 
+        //console.log(beginCh, endCh, title, s, line.styles)
+        marker = cm.markText(
+          {line: lineNumber, ch:beginCh},
+          {line: lineNumber, ch: endCh}, 
+          {replacedWith: relatedIdeaNode, className: "relatedIdeaNode", atomic: true})
+        console.log(marker)
+
+
+
+      }
+    }
+
     //cm.removeLineClass(lineNum, "background","selected")
 
     /*
@@ -284,10 +318,21 @@ window.onload = function() {
   cm.on("renderLine", function(cm, line, elt) {
     var column = CodeMirror.countColumn(line.text, null, cm.getOption("tabSize"));
     var off = column * charWidth;
+
     var lineNumber = cm.getLineNumber(line);
     var bgc = line.styleClasses.bgClass;
-    console.log("render", lineNumber, bgc);
-    var nextLine = cm.getLineHandle(lineNumber+1);
+
+    /*
+    // find all cm-xn-relatestag 
+    var beginCh = 0
+    var endCh = 10
+    // and turn into relatedIdeaNode 
+     // */
+
+  
+
+
+    //var nextLine = cm.getLineHandle(lineNumber+1);
 
     //cm.addLineWidget(lineNumber,buttonNode, {showIfHidden: true})
     /*
