@@ -10,12 +10,39 @@
 	cursor: pointer;
 }
 
+.ideaExpansion { 
+	padding-left: 21px;
+	padding-top: 0px;
+
+	color: #826885;
+
+}
 .relatedIdeaNode { 
 	color: #A726E5;
-	border: 1px solid #562170;
+	border: 0px solid #562170;
 	background-color: #3D015A;
 	cursor: pointer;
 	margin: 1px;
+}
+
+.submitIdeaButton:hover {
+	color: #E52641;
+	background-color: rgb(60, 16, 16);
+	border: 1px outset rgb(80, 20, 20);
+}
+.submitIdeaButton {
+    border: 1px outset rgb(59, 57, 57);
+    background-color: rgb(33, 33, 33); 
+    color: rgb(80,80,80);
+    cursor: pointer;
+    text-decoration: none;
+    margin: 1px;
+    padding: 0 4px;
+    margin:  0 4px;
+}
+
+.ideaAboutToBeSubmitted {
+	background-color:rgb(60, 16, 16);
 }
 
 .cm-xn-link { color: #FFB600;  } 

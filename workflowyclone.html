@@ -65,15 +65,7 @@
     .CodeMirror-linewidget{
       overflow-y: hidden;
     }
-    .submitIdeaButton {
-        border: 0px outset rgb(59, 57, 57);
-        /* background-color: rgb(29, 19, 19); */
-        color: rgb(62, 62, 62);
-        text-decoration: none;
-        padding: 0 4px;
-        overflow
-        /*margin:  0 5px;*/
-    }
+
 
 
     .CodeMirror {border-top: 0px solid black; border-bottom: 0px solid black;}
@@ -142,7 +134,7 @@ var submitWidget = null;
 window.onload = function() {
   
   var thoughts = document.getElementById("thoughts");
-  thoughts.value = "#hashtag @suggestionbox ~person http://imreallyawesome.com\n<>related_idea or rather more like:<>related_idea<-- this sort of thing. see CodeMirror.markText with atomic: true. notice that the text functions as one atomic element, you can't break it down and edit it in the middle, and the whole thing deletes at once. \n\n\nNew ideas are separated by two blank lines!\n\n\nnew idea with alternating bgcolor!!!\n   \n   \nnotice that the two lines above have spaces, still counts as blank\n\n#newidea if it starts with a #hashtag, one blank line is sufficient\n\n@nuhacks hack the planet\n\nattached to this line a line widget! hr! block element!   \n\n\n\nbelow this is an h1, the lines below it make room for its height\nnotice that the cursor skips over it when you move it with arrow keys\n\n\n\n\nHIERARCHICAL Thoughtstreaming\n\tIDEA: Hm. The hierarchical note taking tool: what if it doesn't submit all ideas, but just hash-tagged ideas? \n\t\tSOCRATES: Why would I ever want to not submit ideas to the database?\n\t\tALT-IDEA: Submit everything, then filter during the search process (i.e. hash-tag only)\n\t\t\tREFUTE: We want to lower the memory demands.\n\t\t\t\tREFUTE: ideas take up like no space it's fine; submit everything b/c we want to be able to do more powerful search.\n\tJustify\n\t\tOBSERVATION: I just started a debate in my notes. \n\t\tIDEA: What if I worked justify-like language into the thoughtstreamer? \n\t\t\tREFUTE: It will get confusing.\n\t\tIDEA: socratesbot automatically auto-fills questions to ask myself, based on context clues.\n\t\t\tSOCRATES: What clues?\n\t\t\t\tHYPOTHESIS: I don't know yet, I'd have to test out taking notes like this until clear patterns emerge which have clear needs. \n\tClear patterns emerging which have clear needs. \n\t\tKeyboard Poweruser Flow\n\t\t\tI should be able to do everything without lifting my hands off the keys\n\t\t\tKey commands for everything, including all GUI interactions.  \n\t\tHierarchies. SUPER definitely. \n\t\t\tWhat if I want one element of the hierarchy to include multiple lines? \n\t\t\t\tI could just have each line be a child, and the parent shall title the whole element.\n\t\t\t\t\tREFUTE: Sometimes I don't want that. \n\t\t\t\t\t\tWhen? \n\t\t\t\t\t\t\tWhen copying text from article. \n\t\t\t\t\t\t\tWhen writing narrative/story/blog\n\t\t\t\t\t\t\tWhen making visual diagram where the whole thing needs to be connected. \n\t\t\t\t\t\t\t\tASCII art\n\t\t\t\t\t\t\t\tTables\n\t\t\t\t\t\t\tWhen I don't want an arbitrary line in the middle to have children\n\t\t\t\t\t\t\tWhen I want to write an email, submit an idea, or execute a command with multiple lines. \n\t\t\t\tDo I use two kinds of line breaks? \n\t\t\t\t\tDifferent ASCII characters?\n\t\t\t\t\t\t\\r is new element\n\t\t\t\t\t\t\\n means new line with existing element\n\t\t\t\tEnter to make new element, shift+enter to add new line to existing element\n\t\tLinks. \n\t\t\tMaking a link\n\t\t\t\t1. Highlight text, key command. \n\t\t\t\t2. Search for idea (or filter) to connect.\n\t\t\tClicking a link\n\t\tNumbered lists\n\t\t\tIf all siblings under a parent start with \"#. \", and any of the numbers are out of order, it will automatically fix the order. The text is altered with deletion/insertion.  \n\tAwesome CodeMirror functions\n\t\tmarkText\n\t\t\tatomic: true\n\t\t\t\tTREAT a block of text as a single object. Can't be edited in the middle. Deleted all at once. \n\t\t\treadOnly: true\n\t\t\t\tThe text can't be destroyed! Resets the history, too. \n\t\t\t\tTHIS would be helpful for PUBLIC-commenting. \n\tOMG i already want to be using my thoughtstream tool and not SUBLIME text anymore\n";
+  thoughts.value = "#hashtag @suggestionbox ~person http://imreallyawesome.com\n<>343\"related idea\" <-- notice that the text functions as one atomic element, you can't break it down and edit it in the middle, and the whole thing deletes at once. \nClick it to expand, click again to collapse\n\n\nOnly the first @suggestionbox for each idea gets [submit]!\nThe whole idea highlights red on mouseover!\nOn submit the idea turns into a related idea tag\n\n\nNew ideas are separated by two blank lines!\n\n\nnew idea with alternating bgcolor!!!\n   \n   \nnotice that the two lines above have spaces, still counts as blank\n\n#newidea if it starts with a #hashtag, one blank line is sufficient\n\n@nuhacks hack the planet\n\nattached to this line a line widget! hr! block element!   \n\n\n\nbelow this is an h1, the lines below it make room for its height\nnotice that the cursor skips over it when you move it with arrow keys\n\n\n\n\nHIERARCHICAL Thoughtstreaming\n\tIDEA: Hm. The hierarchical note taking tool: what if it doesn't submit all ideas, but just hash-tagged ideas? \n\t\tSOCRATES: Why would I ever want to not submit ideas to the database?\n\t\tALT-IDEA: Submit everything, then filter during the search process (i.e. hash-tag only)\n\t\t\tREFUTE: We want to lower the memory demands.\n\t\t\t\tREFUTE: ideas take up like no space it's fine; submit everything b/c we want to be able to do more powerful search.\n\tJustify\n\t\tOBSERVATION: I just started a debate in my notes. \n\t\tIDEA: What if I worked justify-like language into the thoughtstreamer? \n\t\t\tREFUTE: It will get confusing.\n\t\tIDEA: socratesbot automatically auto-fills questions to ask myself, based on context clues.\n\t\t\tSOCRATES: What clues?\n\t\t\t\tHYPOTHESIS: I don't know yet, I'd have to test out taking notes like this until clear patterns emerge which have clear needs. \n\tClear patterns emerging which have clear needs. \n\t\tKeyboard Poweruser Flow\n\t\t\tI should be able to do everything without lifting my hands off the keys\n\t\t\tKey commands for everything, including all GUI interactions.  \n\t\tHierarchies. SUPER definitely. \n\t\t\tWhat if I want one element of the hierarchy to include multiple lines? \n\t\t\t\tI could just have each line be a child, and the parent shall title the whole element.\n\t\t\t\t\tREFUTE: Sometimes I don't want that. \n\t\t\t\t\t\tWhen? \n\t\t\t\t\t\t\tWhen copying text from article. \n\t\t\t\t\t\t\tWhen writing narrative/story/blog\n\t\t\t\t\t\t\tWhen making visual diagram where the whole thing needs to be connected. \n\t\t\t\t\t\t\t\tASCII art\n\t\t\t\t\t\t\t\tTables\n\t\t\t\t\t\t\tWhen I don't want an arbitrary line in the middle to have children\n\t\t\t\t\t\t\tWhen I want to write an email, submit an idea, or execute a command with multiple lines. \n\t\t\t\tDo I use two kinds of line breaks? \n\t\t\t\t\tDifferent ASCII characters?\n\t\t\t\t\t\t\\r is new element\n\t\t\t\t\t\t\\n means new line with existing element\n\t\t\t\tEnter to make new element, shift+enter to add new line to existing element\n\t\tLinks. \n\t\t\tMaking a link\n\t\t\t\t1. Highlight text, key command. \n\t\t\t\t2. Search for idea (or filter) to connect.\n\t\t\tClicking a link\n\t\tNumbered lists\n\t\t\tIf all siblings under a parent start with \"#. \", and any of the numbers are out of order, it will automatically fix the order. The text is altered with deletion/insertion.  \n\tAwesome CodeMirror functions\n\t\tmarkText\n\t\t\tatomic: true\n\t\t\t\tTREAT a block of text as a single object. Can't be edited in the middle. Deleted all at once. \n\t\t\treadOnly: true\n\t\t\t\tThe text can't be destroyed! Resets the history, too. \n\t\t\t\tTHIS would be helpful for PUBLIC-commenting. \n\tOMG i already want to be using my thoughtstream tool and not SUBLIME text anymore\n";
 
   cm = CodeMirror.fromTextArea(thoughts, {
     mode: "xn",
@@ -154,7 +146,7 @@ window.onload = function() {
     smartIndent: true,
     autoFocus: true,
     indentWithTabs: true,
-    styleActiveLine: true,
+    /*styleActiveLine: true,*/
     tabsize: 4,
     /*workTime: 1,
     workDelay: 1,
@@ -216,23 +208,14 @@ window.onload = function() {
     cm.hintOpen = true
   });
 
-  buttonNode = document.createElement("span");
-  buttonNode.className = "submitIdeaButton";
-  buttonNode.appendChild(document.createTextNode(" test "));
 
-  //submitWidget = null; 
-  cm.on("cursorActivity", function(line, changeObjb){
-    if(submitWidget) submitWidget.clear();
-    var lineCh = cm.getCursor("head")
-    var lineNumber = lineCh.line;
-    var line = cm.getLineHandle(lineNumber);
-    var bgc = line.styleClasses.bgClass; 
-    //lineObj.styleClasses.bgClass = "";
 
-    console.log(lineNumber, bgc);
 
+  function makeRelatedIdeaObjects(line){
+    // Turn <>ID"title" text into related idea objects
+    var lineNumber = cm.getLineNumber(line);
     for(var i=0; i<line.styles.length; i++){
-      var s = line.styles[i]
+      var s = line.styles[i] // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
       if(s == "xn-relatestag"){
         if(i>=3){
           beginCh = line.styles[i-3]
@@ -243,27 +226,375 @@ window.onload = function() {
         }else{
           continue;
         }
-        var relatedIdeaNode = document.createElement("span");
-        relatedIdeaNode.className = "relatedIdeaNode";
+        var relatedIdeaNode = document.createElement("span"); // in the DOM, we shall replace the raw text with this new span.
+        relatedIdeaNode.className = "relatedIdeaNode"; // new styling
         // filter title change text to <>Title 
         var title = cm.getRange({line: lineNumber, ch: beginCh}, {line: lineNumber, ch: endCh})
-        newtitle = "<>" + title.substring(title.indexOf("\"")+1,title.length-1)
+        var newtitle = "<>" + title.substring(title.indexOf("\"")+1,title.length-1)
         relatedIdeaNode.appendChild(document.createTextNode(newtitle));
         var id = title.substring(2, title.indexOf("\""));
-        relatedIdeaNode.addEventListener('click',function(){alert("idea id = "+id)}, false)
+        relatedIdeaNode.newtitle = newtitle;
+        relatedIdeaNode.ideaID = id;
+
+        relatedIdeaNode.addEventListener('click',function(){
+          var thisLineNumber = cm.getLineNumber(this.marker.lines[0]);
+          console.log("thisLineNumber",thisLineNumber);
+          //alert("idea id = "+id);
+          var expandedIdeaDiv =document.createElement("div");
+          expandedIdeaDiv.className = "ideaExpansion"
+          var text =  document.createTextNode(this.newtitle);
+          expandedIdeaDiv.appendChild(text)
+          expandedIdeaDiv.ideaID = this.ideaID;
+
+          // if widget already expanded, remove it
+          var widgetDeletionFlag = false;
+          var widgets = this.marker.lines[0].widgets;
+          if(widgets && widgets!=undefined){
+            for(var w=0;w<widgets.length;w++){
+              var widget = widgets[w];
+              if(widget.node.ideaID && (widget.node.ideaID == this.ideaID)){
+                widget.clear();
+                widgetDeletionFlag = true;
+                break;
+              }
+            }
+          }
+          if(!widgetDeletionFlag){
+            // else add it
+            cm.addLineWidget(thisLineNumber, expandedIdeaDiv, {showIfHidden: true})
+          }
+          cm.focus();
+        }, false)
         // markText atomic;true 
         //console.log(beginCh, endCh, title, s, line.styles)
         marker = cm.markText(
           {line: lineNumber, ch:beginCh},
           {line: lineNumber, ch: endCh}, 
           {replacedWith: relatedIdeaNode, className: "relatedIdeaNode", atomic: true})
-        console.log(marker)
-
-
-
+        relatedIdeaNode.marker = marker;
+        
+        cm.focus()
       }
     }
+  }
 
+  function makeSubmitButtonNode(lineNumber){
+    var ideaText = "";
+
+    var buttonNode = document.createElement("span");
+    buttonNode.className = "submitIdeaButton";
+    buttonNode.appendChild(document.createTextNode(" submit "));
+    buttonNode.addEventListener('click',function(){
+      var ideaLines = findTopAndBottomOfTheIdeaInWhichThisLineIs(cm.getLineHandle(lineNumber), "INCLUDETOCURSOR");
+      var ideaText = getIdeaText(ideaLines.lines);
+      alert(ideaText);
+      emptyLines(ideaLines.top, ideaLines.bottom)
+      var ideaTitle = ideaText.substring(0,50).replace(/\n/gm," ").replace(/\"/gm,"");
+
+      //submit
+      //var maps = ideaText
+      //$.ajax(){
+      //  http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/ideajoin/public_html/ajax/get_or_make_post_ideamaps.php?mapid=0&newpost=
+      //}
+
+
+      cm.replaceRange("<>9999\""+ideaTitle+"\"",{line:ideaLines.top,ch:0})
+      cm.focus();
+    }, false)
+    buttonNode.addEventListener("mouseover",function(){
+      var ideaLines = findTopAndBottomOfTheIdeaInWhichThisLineIs(cm.getLineHandle(lineNumber), "INCLUDETOCURSOR");
+      highlightIdea(ideaLines);
+    }, false);
+    buttonNode.addEventListener("mouseout",function(){
+      var viewPortLines = cm.getViewport();
+      for(var l=viewPortLines.from;l<=viewPortLines.to;l++){
+        cm.removeLineClass(l, "background", "ideaAboutToBeSubmitted");
+      }
+    }, false);
+    return buttonNode;
+
+  }
+  function highlightIdea(ideaLines){
+    var viewportLines = cm.getViewport();
+    var top = Math.max(ideaLines.top, viewportLines.from);
+    var bottom = Math.min(ideaLines.bottom, viewportLines.to);
+    for(var l=top;l<=bottom;l++){
+      cm.addLineClass(l, "background", "ideaAboutToBeSubmitted");
+    }
+  }
+  // finds first @map tag in line, and adds [submit] button to it. 
+  function addSubmitButtonToFirstMap(line){
+      var lineNumber = cm.getLineNumber(line);
+      if(line.styles){
+        for(var i=0; i<line.styles.length; i++){
+          var s = line.styles[i] // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
+          if(s == "xn-maptag"){
+            if(i>=3){
+              beginCh = line.styles[i-3]
+              endCh = line.styles[i-1]
+            }else if(i==2){
+              beginCh = 0
+              endCh = line.styles[1]
+            }else{
+              continue;
+            }
+            //mapNode.className = "mapNode"; // new styling
+            // filter title change text to <>Title 
+            var mapName = cm.getRange({line: lineNumber, ch: beginCh+1}, {line: lineNumber, ch: endCh})
+            var mapNameNode = document.createElement("span")
+            mapNameNode.className = "cm-xn-maptag";
+            mapNameNode.appendChild(document.createTextNode("@"+mapName));
+            //mapNameNode.addEventListener("click",function(){alert("filter" + mapName)});
+
+            var buttonNode = makeSubmitButtonNode(lineNumber);
+
+            var mapNode = document.createElement("span"); // in the DOM, we shall replace the raw text with this new span.s
+            mapNode.appendChild(buttonNode);
+            mapNode.appendChild(mapNameNode);
+            //mapNode.appendChild(document.createTextNode(" "));
+
+            // markText atomic;true 
+            //console.log(beginCh, endCh, title, s, line.styles)
+            marker = cm.markText(
+              {line: lineNumber, ch:beginCh},
+              {line: lineNumber, ch: endCh}, 
+              {replacedWith: mapNode, atomic: false, className: "mapMarker"})
+
+            return true;
+          }
+        }
+        return false;
+      }
+  }
+
+  // remove lines (when submitting an idea)
+  function removeLines(top,bottom){
+    cm.replaceRange("",{line:top,ch:0},{line:bottom+1,ch:0})
+    cm.focus()
+    //cm.setCursor({line: top,ch:0})
+  }  
+
+  // delete all characters in lines, but keep lines in place
+  function emptyLines(top,bottom){
+    for(var l=top;l<=bottom;l++){
+      cm.replaceRange("",
+        {line: l, ch: 0},
+        {line: l, ch: cm.getLine(l).length})
+      cm.removeLineClass(l, "background", "ideaAboutToBeSubmitted");
+      var line = cm.getLineHandle(l);
+      if(line.widgets){
+        for(var w=0;w<line.widgets.length;w++){
+          line.widgets[w].clear();
+          if(!line.widgets) break;
+        }
+      }
+    }
+    cm.focus()
+    //cm.setCursor({line: top,ch:0})
+  }
+
+  // given lineNumber, finds its neighboring lines included in the same idea, and returns the text  
+  function getIdeaText(lines){
+    var ideaText = "";
+    for(var l = 0; l < lines.length; l++){
+      ideaText += lines[l].text + "\n"; 
+    }
+    return ideaText;
+  }
+
+  // finds the idea that this line is in, and returns an object containing the top and bottom line numbers {top: 2, bottom: 4}
+  // trimWhitespace
+  //   "NONE" :  include all blank lines below the text of the idea 
+  //   "ALL" : include no blank lines below text of idea
+  //   "INCLUDETOCURSOR" : include up to two blank lines below, if cursor is below
+  function findTopAndBottomOfTheIdeaInWhichThisLineIs(line, trimWhitespace){
+    var lineNumber = cm.getLineNumber(line);
+    var originalLineNumber = lineNumber;
+    var bgc = line.styleClasses.bgClass; 
+    // line number
+
+    var bottomLineNumber = cm.lineCount();
+    var topLineNumber = 0;
+
+    while( lineNumber < cm.lineCount()){ // find the bottom of this idea
+      lineNumber++;
+      lineObj = cm.getLineHandle(lineNumber);
+      if(!lineObj){
+        lineNumber--;
+        break; // no more lines, we're at the bottom of the document (and the idea)
+      }
+      bgc = lineObj.styleClasses.bgClass; 
+      if(bgc.substring(0,10)=="xn-newidea"){
+        lineNumber--;
+        break; // we landed on a new idea
+      }
+    }
+    if(trimWhitespace == "ALL" || trimWhitespace == "INCLUDETOCURSOR"){
+      // now we back up through the white space until we land on text again
+      while( lineNumber > 0){
+        lineObj = cm.getLineHandle(lineNumber);
+        bgc = lineObj.styleClasses.bgClass; 
+        if(bgc.substring(0,14) == "xn-currentidea" || bgc.substring(0,10)=="xn-newidea"){               
+          // the last line of text in the idea
+          if(trimWhitespace == "INCLUDETOCURSOR"){
+            if(originalLineNumber > lineNumber+2){
+              // cursor is too far down
+            }else{
+              // go forward to see if next line is blank 
+              if(originalLineNumber < lineNumber+1) break; // only if cursor is in the blank lines
+              lineObj = cm.getLineHandle(lineNumber+1);
+              if(lineObj){
+                bgc = lineObj.styleClasses.bgClass; 
+                if(bgc.substring(0,13) == "xn-empty-line"){
+                  lineNumber++; // next line is blank
+                  if(originalLineNumber < lineNumber+1) break; // only if cursor is in the blank lines
+                  lineObj = cm.getLineHandle(lineNumber+1);
+                  if(lineObj){
+                    bgc = lineObj.styleClasses.bgClass; 
+                    if(bgc.substring(0,13) == "xn-empty-line"){
+                      lineNumber++; // next two lines are blank
+                      break; // include the next two blank lines
+                    }
+                  }
+                }
+              }
+            }
+          }
+          break; 
+        }else{
+          lineNumber--; // back up another line
+          continue;
+        }
+      }
+      bottomLineNumber = lineNumber;
+    }else if(trimWhitespace == "NONE" || !trimWhitespace){
+      // keeep all the blank lines at the bottom
+      bottomLineNumber = lineNumber;
+    }
+    // now we back up until we find "xn-newidea"
+    while( lineNumber > 0){
+      lineObj = cm.getLineHandle(lineNumber);
+      bgc = lineObj.styleClasses.bgClass; 
+      if(bgc.substring(0,10)=="xn-newidea"){
+        // beginning of the idea
+        break; 
+      }else{
+        lineNumber--; // back up another line
+        continue;
+      }
+    }
+    topLineNumber = lineNumber;
+    var lines = []
+    for(var l=topLineNumber; l<=bottomLineNumber; l++){
+      lines.push(cm.getLineHandle(l));
+    }
+    return {top: topLineNumber, bottom: bottomLineNumber, lines: lines}
+
+
+  }
+
+
+  // returns true if idea has this tag
+  // ideaHasTagSomewhereInIt(ideaLines, "xn-maptag")
+  function ideaHasTagSomewhereInIt(ideaLines, tag){
+    var lines = ideaLines.lines;
+    for(var l=0;l<ideaLines.lines.length;l++){
+      var line = ideaLines.lines[l]
+      if(line.styles){
+        for(var i=0; i<line.styles.length; i++){
+          var s = line.styles[i] 
+          if(s == tag){
+            return true;
+          }
+        }
+      }
+    }
+    return false
+  }
+  // if markerClassName is blank, deletes all markers
+  function removeMarkersFromLine(markerClassName, line){
+    if(line.hasOwnProperty("markedSpans")){
+      var markers = line.markedSpans;
+      if(markers){
+        for(var m=0; m < markers.length; m++){
+          var marker = markers[m];
+          if(!markerClassName  // delete all markers
+            || (marker.marker.className == markerClassName)){
+            marker.marker.clear();
+          }
+        }
+      }else{
+        // we're good, no markers on this line
+      }
+    }else{
+      // we're good, no markers on this line
+    }
+  }
+
+  //submitWidget = null; 
+  cm.on("cursorActivity", function(line, changeObjb){
+    if(submitWidget) submitWidget.clear();
+    var lineCh = cm.getCursor("head")
+    var lineNumber = lineCh.line;
+    var line = cm.getLineHandle(lineNumber);
+    //lineObj.styleClasses.bgClass = "";
+
+    console.log(lineNumber);
+
+    var ideaLines = findTopAndBottomOfTheIdeaInWhichThisLineIs(line, "INCLUDETOCURSOR");
+
+    /*
+    for(var l=0; l<ideaLines.lines.length; l++){
+      var ideaLine = ideaLines.lines[l];
+      //remove all map markers
+      removeMarkersFromLine("mapMarker", ideaLine);
+    }*/
+    // removeMarkersFromLine("mapMarker", cm.getLineHandle(l)); // last line
+
+    /*for(var l=0; l<ideaLines.lines.length; l++){
+      var ideaLine = ideaLines.lines[l]
+      if(addSubmitButtonToFirstMap(ideaLine, function(){
+      })) break; // stop after first map
+    }*/
+
+    if(ideaHasTagSomewhereInIt(ideaLines,"xn-maptag")){
+      var buttonNode = makeSubmitButtonNode(ideaLines.bottom);
+      submitWidget = cm.addLineWidget(ideaLines.bottom, buttonNode, {showIfHidden: true })
+      //highlightIdea(ideaLines);
+    }
+
+    // var bottomLine = ideaLines.lines[ideaLines.lines.length-1]
+    /*var bottomLineText = bottomLine.text;
+    bottomLineText = bottomLineText.replace(/[\s]*$/, "");
+    var bottomLineLastCh = bottomLineText.length;
+    console.log("bottomLine", bottomLine, bottomLineLastCh)
+    cm.replaceRange(" ", 
+      {line: ideaLines.bottom, ch: bottomLineLastCh+1},
+      {line: ideaLines.bottom, ch: bottomLineLastCh+2})
+    marker = cm.markText(
+              {line: ideaLines.bottom, ch:bottomLineLastCh},
+              {line: ideaLines.bottom, ch:bottomLineLastCh+1}, 
+              {replacedWith: buttonNode, atomic: true, className: "mapMarker",
+               inclusiveLeft: false, inclusiveRight: false, collapsed: true})
+    */
+    /*
+    cm.replaceRange(" ", 
+      {line: ideaLines.bottom+1, ch: 0},
+      {line: ideaLines.bottom+1, ch: 1})
+    marker = cm.markText(
+              {line: ideaLines.bottom+1, ch:0},
+              {line: ideaLines.bottom+1, ch:1}, 
+              {replacedWith: buttonNode, atomic: true, className: "mapMarker",
+               inclusiveLeft: false, inclusiveRight: false, collapsed: true})
+    */
+
+
+    
+    // Current approach: delete all markers, add them again every time.
+    removeMarkersFromLine("relatedIdeaNode", line);
+    makeRelatedIdeaObjects(line);
+
+    
     //cm.removeLineClass(lineNum, "background","selected")
 
     /*
@@ -307,7 +638,7 @@ window.onload = function() {
       }
     }*/
 
-    //submitWidget = cm.addLineWidget(lineNum,buttonNode, {showIfHidden: true })
+    //submitWidget = cm.addLineWidget(lineNumber,buttonNode, {showIfHidden: true })
   })
 
 
@@ -358,9 +689,9 @@ window.onload = function() {
 
     elt.style.textIndent = "-" + off + "px";
     elt.style.paddingLeft = (basePadding + off) + "px";
+
     /* color unique ideas */
     //elt.style.backgroundColor = "#eee"
-
 
     //elt.style.paddingBottom = "5px" /* padding space between lines, so as to distinguish new lines from wrapped text */ 
 
@@ -386,26 +717,19 @@ window.onload = function() {
   cm.refresh();
 
 
+
   // create a node
   h1Node =document.createElement("h1");
   text =  document.createTextNode("idea overflow 4eva");
   h1Node.appendChild(text)
-
   hrNode = document.createElement("hr")
 
   // call this after you initialized the editor.
   // the position must be like this {ch: YourCharecterNumber, line: YourLineNumber}
-  cm.addLineWidget(20,h1Node, {showIfHidden: true})
-  cm.addLineWidget(16,hrNode, {showIfHidden: true})
+  cm.addLineWidget(26,h1Node, {showIfHidden: true})
+  cm.addLineWidget(22,hrNode, {showIfHidden: true})
   //cm.addLineWidget(11,divNode, {showIfHidden: true})
 
-  // [related idea span]
-
-  relatedIdeaNode =document.createElement("span");
-  relatedIdeaNode .className = "relatedIdeaNode";
-  relatedIdeaNode.appendChild(document.createTextNode("<>related idea"));
-  cm.markText({line:1,ch:35},{line:1,ch:49},{replacedWith:relatedIdeaNode, atomic: true})
-  
 
 
 
