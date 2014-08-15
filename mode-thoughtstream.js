@@ -1,7 +1,9 @@
 // TODO actually recognize syntax of TypeScript constructs
 var floop = false;
 CodeMirror.defineMode("xn", function(config, parserConfig) {
-  
+ 
+
+
   function chaosnotesTokenBase(stream, state){
 	// needs improvement
 	var matchURL = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)(:[0-9]+)?((?:\/[\+~%\/.\w-_\(\)\:]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\w\=]*))?)/;
@@ -17,8 +19,53 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 			state.blankLinesAbove = state.blankLineCount
 			state.blankLineCount = 0; 
 		}
+		var deepnessClass = " ";
+	  	if(window.cm){
+	  		var indent = stream.indentation()/window.cm.options.tabSize;
+	  		//console.log(indent)
+	  		// state.lineage 
+	  		//var deepness = state.lineage.length;
+	  		if(indent >= state.deepness+2){
+	  			// child has too many indentations
+	  			// Two ways to address this problem:
+	  			if(_CONFIG.hierarchy.strictIndentation){
+	  				// 1) break the entire hierarchy. no new hierarchies until a new line starts from 0 indent
+					state.deepness = -1;
+				}else{
+					// break the hierarchy until the next properly indented line
+				}
+	  			deepnessClass = " line-background-xn-hierarchy-broken";
+	  		}else if (indent == 0){
+	  			// reset hierarchy
+	  			state.deepness = 0;
+	  			deepnessClass = " line-background-xn-hierarchy-0 ";
+	  		}else if(indent == state.deepness+1){
+	  			// child node  
+	  			if(_CONFIG.hierarchy.strictBlankLines && state.blankLinesAbove > 0){
+	  				// blank lines between parent and child
+		  			// strict rule: break hierarchy
+	  				state.deepness = -1;
+	  				deepnessClass = " line-background-xn-hierarchy-broken";
+		  		}else{
+		  			state.deepness = indent;
+		  			deepnessClass = " line-background-xn-hierarchy line-background-xn-hierarchy-" + indent;
+		  		}
+	  		}else if(indent == state.deepness){
+	  			// sibling node  
+	  			state.deepness = indent;
+	  			deepnessClass = "line-background-xn-hierarchy line-background-xn-hierarchy-" + indent;
+	  		}else if(indent < state.deepness){
+	  			// returning up the hierarchy by any amount
+	  			state.deepness = indent;
+	  			deepnessClass = "line-background-xn-hierarchy line-background-xn-hierarchy-" + indent;
+	  		}
+	  	}
   	}
 
+  		//console.log(getOptions("tabSize"))
+  	
+  	//var tabSize = 
+  	//console.log(indent, tabSize);
 	var ch = stream.next();
 
   	var style = "";
@@ -100,7 +147,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 	}
 	if(startOfLine){
 		// every other idea gets an alternating css class
-		return style + " line-background-xn-" + (newIdeaFlag?"newidea-line ":"currentidea-line ") + "line-background-xn-"+state.alternate
+		return style + " line-background-xn-" + (newIdeaFlag?"newidea-line ":"currentidea-line ") + "line-background-xn-"+state.alternate + deepnessClass;
 	}
 	return style
   };
@@ -122,11 +169,13 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 	startState: function(basecolumn){
 	    return {
 			tokenize: chaosnotesTokenBase,
-	        blankLineCount: 0,
-	        blankLinesAbove: 0,
-	        ideaCount: 0,
-	        alternate: "a",
-			lastType: null
+	        blankLineCount: 0, 
+	        blankLinesAbove: 0, // number of blank lines above current line
+	        ideaCount: 0, // how many ideas down we are (separated by blank line(s))
+	        alternate: "a", // alternating ideas are "a" or "b"
+			lastType: null,
+			deepness: -1 // how deep in the hierarchy
+			//lineage: [] // if in a hierarchy, this is athelist of line numbers which mark this line's parent, grandparent, etc  
 		};
 	},
 	blankLine: blankLine,

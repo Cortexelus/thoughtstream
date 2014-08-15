@@ -24,3 +24,15 @@ function base64_to_base10(str) {
     }
     return num;
 }
+
+// http://stackoverflow.com/questions/4833651/javascript-array-sort-and-unique
+function sort_unique(arr) {
+    arr = arr.sort(function (a, b) { return a*1 - b*1; });
+    var ret = [arr[0]];
+    for (var i = 1; i < arr.length; i++) { // start loop at 1 as element 0 can never be a duplicate
+        if (arr[i-1] !== arr[i]) {
+            ret.push(arr[i]);
+        }
+    }
+    return ret;
+}
