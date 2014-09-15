@@ -1,0 +1,79 @@
+html { height: 100%; }
+body { 
+  margin: 0; padding: 0; height: 100%; 
+  color: rgb(203, 203, 203); 
+  background-color: rgb(30, 29, 26);
+}
+
+
+body, button, .CodeMirror pre, input{ 
+  font-family: Open Sans, arial, sans-serif, comic sans ms;
+  font-weight: 200;
+  line-height: 1.2em;
+}
+
+/* Height / width / positioning can be customized for your use case.
+   For demo purposes, we make firepad fill the entire browser. */
+.CodeMirror {
+  position: absolute; left: 0; top: 34px; bottom: 0; right: 0; height: auto;
+  background-color: rgb(30, 29, 26);
+  color: rgb(203, 203, 203);
+}
+
+.CodeMirror div.CodeMirror-cursor{
+  border-left: 1px solid white;
+}
+.CodeMirror-gutters{
+  background-color: inherit;
+  border: inherit;
+}
+.CodeMirror-linenumber{
+  color: #808080;
+}
+
+#filter {
+  height: 21px; width: 400px;
+  padding: 3px;
+  padding-left: 5px;
+  font-size: 16px;
+  margin: 0px; border: 2px solid #222; background-color: #333;
+  color: #999;
+}
+
+#filter::-webkit-input-placeholder { color: #555; }
+#filter:-moz-placeholder { color: #555; }
+#filter::-moz-placeholder { color: #555; } 
+#filter:-ms-input-placeholder { color: #555; }
+
+#searchClear {
+  position: absolute;
+  top: 0px;
+  cursor: pointer;
+  left: 390px;
+  height: 20px;
+  line-height: 22px;
+  margin-top:3px;
+  color: #AAA;
+  font-family: Arial;
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+#top {
+  position: absolute; left: 0px; top: 0px; width: 100%; height: auto;
+}
+.CodeMirror-linewidget{
+  overflow-y: hidden;
+}
+
+
+
+.CodeMirror {border-top: 0px solid black; border-bottom: 0px solid black;}
+#upvote {margin-left: 4px; border: 3px #999 solid; background-color: #ddd; padding: 7px;}
+
+/*.cm-tab { text-indent: initial;}*/
+.CodeMirror pre > * { text-indent: 0px; }

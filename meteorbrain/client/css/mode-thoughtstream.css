@@ -1,0 +1,142 @@
+
+/* code mirror syntax styling */
+/* #428bca */
+.cm-xn-hashtag { font-weight: bold; color: #48c; }
+.cm-xn-persontag { font-weight: bold; color: #48c; }
+.cm-xn-maptag { font-weight: bold; color: #E52641; }
+.cm-xn-relatestag { font-weight: bold; color: #A726E5; }
+
+.cm-xn-hashtag:hover { font-weight: bold; color: #59d; }
+.cm-xn-persontag:hover { font-weight: bold; color: #59d; }
+.cm-xn-maptag:hover { font-weight: bold; color: #F53651; }
+.cm-xn-relatestag:hover { font-weight: bold; color: #B736F5; }
+
+.cm-xn-hashtag, .cm-xn-persontag, .cm-xn-maptag, .cm-xn-relatestag {
+	cursor: pointer;
+}
+
+.ideaExpansion { 
+	padding-left: 21px;
+	padding-top: 0px;
+
+	color: #826885;
+
+}
+.relatedIdeaNode { 
+	color: #A726E5;
+	border: 0px solid #562170;
+	background-color: #3D015A;
+	cursor: pointer;
+	margin: 1px;
+	font-weight: bold; 
+}
+
+.submitIdeaButton:hover {
+	color: #E52641;
+	background-color: rgb(90, 26, 26);
+	border: 1px outset rgb(110, 30, 30);
+}
+.submitIdeaButton {
+    /* border: 1px outset rgb(59, 57, 57);
+    background-color: rgb(33, 33, 33); 
+
+    color: rgb(80,80,80); */
+
+
+	color: #B52641;
+	background-color: rgb(90, 26, 26);
+	border: 1px outset rgb(110, 30, 30);
+
+	height: 21px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 1px;
+    padding: 3px 8px;
+    margin:  0 4px;
+    font-size: 14px;
+}
+
+/* regular folds */
+.foldedTextSpan {
+	/*display: none;*/
+}
+
+/* folds inside hierarchies */
+div.xn-hierarchy ~ pre .foldedTextSpan {
+	display: none; 
+}
+
+.xn-hierarchy-broken { 
+	background-color: rgb(90,45,45);
+}
+
+.xn-hierarchy-0 { 
+	background-color: rgb(30,30,30);
+}
+
+.xn-hierarchy-1, .xn-hierarchy-2, .xn-hierarchy-3, .xn-hierarchy-4,
+.xn-hierarchy-5, .xn-hierarchy-6, .xn-hierarchy-7, .xn-hierarchy-8,
+.xn-hierarchy-9, .xn-hierarchy-10, .xn-hierarchy-11, .xn-hierarchy-12{ 
+	background-color: rgb(45,45,45);
+}
+
+
+/* WIKIPEDIA markup
+color: #000000; background: none; overflow: hidden; page-break-after: avoid; font-size: 1.8em; font-family: Georgia,Times,serif; margin-top: 1em; margin-bottom: 0.25em; line-height: 1.3; padding: 0; border-bottom: 1px solid #AAAAAA; */
+
+.xn-h1 ~ pre, .xn-h2 ~ pre, .xn-h3 ~ pre, .xn-h4 ~ pre, .xn-h5 ~ pre, .xn-h6 ~ pre { 
+	color: #fff;
+}
+.xn-h1 ~ pre{ font-size: 1.8em; }
+.xn-h2 ~ pre{ font-size: 1.5em; }
+.xn-h3 ~ pre{ font-size: 1.2em; }
+.xn-h4 ~ pre{ font-size: 1em; }
+.xn-h5 ~ pre{ font-size: 1em; }
+.xn-h6 ~ pre{ font-size: 1em; }
+
+.ideaAboutToBeSubmitted {
+	background-color:rgb(90, 26, 26);
+}
+
+.cm-xn-link { color: #48c;  } 
+.cm-xn-link:hover { color: #6ae; cursor: pointer;}  
+.xn-suggestionbox-bg { background-color: white;}
+
+
+/*background-image: linear-gradient(to bottom, #eee 0%, white 100%);*/ 
+
+.CodeMirror-activeline-background { background: rgb(40, 39, 36);}
+
+/*
+.xn-newidea-line-a {background-color: rgb(40, 39, 36);}
+.xn-currentidea-line-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-1-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-2-a {background-color: rgb(40, 39, 36);}
+.xn-empty-line-3-a {background-color: rgb(40, 39, 36);}
+
+.xn-newidea-line-b {background-color: rgb(40, 39, 36);}
+.xn-currentidea-line-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-1-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-2-b {background-color: rgb(40, 39, 36);}
+.xn-empty-line-3-b {background-color: rgb(40, 39, 36);}*/
+/*
+
+.xn-newidea-line-b {background-color: rgb(19, 19, 17);}
+.xn-currentidea-line-b {background-color: rgb(19, 19, 17);}
+.xn-empty-line-1-b {background-color: rgb(19, 19, 17);}
+.xn-empty-line-2-b {background-color: rgb(20, 19, 17);}
+.xn-empty-line-3-b {background-color: rgb(20, 19, 17);}
+
+*/
+
+
+
+
+/*
+
+.xn-empty-line {background-color: #eee;}
+.xn-empty-line-2 {background-color: white;}
+.xn-newidea-line {background-color: #eee ;}
+.xn-currentidea-line{background-color: #eee ;}
+
+*/
