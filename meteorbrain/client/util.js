@@ -1,7 +1,7 @@
 
 
 var _base64Alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-";
-function base10_to_base64(num) {
+base10_to_base64 = function (num) {
     var base = _base64Alphabet.length;
     var str = "", r;
     while (num) {
@@ -13,7 +13,7 @@ function base10_to_base64(num) {
     return str;
 }
 
-function base64_to_base10(str) {
+base64_to_base10 = function (str) {
     var base = _base64Alphabet.length;
     var num = 0, r;
     while (str.length) {
@@ -26,7 +26,7 @@ function base64_to_base10(str) {
 }
 
 // http://stackoverflow.com/questions/4833651/javascript-array-sort-and-unique
-function sort_unique(arr) {
+sort_unique = function (arr) {
     arr = arr.sort(function (a, b) { return a*1 - b*1; });
     var ret = [arr[0]];
     for (var i = 1; i < arr.length; i++) { // start loop at 1 as element 0 can never be a duplicate

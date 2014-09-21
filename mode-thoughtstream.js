@@ -147,7 +147,7 @@ CodeMirror.defineMode("xn", function(config, parserConfig) {
 	}
 	if(startOfLine){
 		// every other idea gets an alternating css class
-		return style + " line-background-xn-" + (newIdeaFlag?"newidea-line ":"currentidea-line ") + "line-background-xn-"+state.alternate + deepnessClass;
+		return "line-background-xn-" + (newIdeaFlag?"newidea-line ":"currentidea-line ") + "line-background-xn-"+state.alternate + deepnessClass + " " + style;
 	}
 	return style
   };

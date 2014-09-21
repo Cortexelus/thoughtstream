@@ -1,6 +1,6 @@
 
 /* CONFIG */
-var _CONFIG = {
+_CONFIG = {
   submitButton: "topNav", /* endOfIdea, topNav */
   hierarchy: { 
     strictIndentation: false, // if true, too many indents will break the whole hierarchy; if false, hierarchy will partial break until finds line with proper indentation
@@ -11,14 +11,15 @@ var _CONFIG = {
 
 
 
+
 // autocomplete 
-var map_tags = ["MA_State_Government","MIT","Princeton_","MIT_ADPhi","MA_State_Budget","MIT_Elections_Committee","MIT_2030","MIT_2030_Student_Center_Renovation_Ideas","Harvard","Harvard_Eliot_House","#person_jcole","Quote_Board","Hackathon_Project_Ideas","Foods_Chase_Likes","MIT_Complaints_-_Why_thought_of_transferring_out","MIT_Opportunities_-_Why_thought_of_transferring_in","MIT_People\\'s_Stories","If_I_went_to_MIT_(or_other_top_college)_I_would...","Greater_Boston_Area","MIT_SIPB","Coolest_things_in_the_world","Rice","AngelHack_Boston_2013","Aptonym","Books_for_Jacob","Del_Mar_Terrace","TZ_MIT_Hackathon","Stanford_HUMBIO_183:_Astrobiology_&amp;_Space_Exploration","Compass","Leap_Motion_Project_Ideas","Web_Dev_Resources","Greylock_Hackfest_Ideas","Foods","jmjmkj_klm","_k_k_kkmlkmlkmlmkmlkmlmlmlkmmlmlmlkmlmlkm","wutttttt","Palo_Alto","Words_that_are_Good","Jacob","Stanford_Class_Recs","testing_1_2_3\n","Suggestions_for_Asana","Meditation-inducing_thoughts","dropbox_hack_week\n","Phoenix_Dinner_Event_8\/3\/13","Idea_of_the_Day","Internet_of_Things\n","Knowledge_Structuring_Problems","Tanzania","ADHD","Quadrotor.tk","Quadrotor_Ideas","Quadrotor_Drone_Ideas","DIY_Entertainment","MIT_Classes","Harvard_Classes","Test","Test","things_you_didnt_know_existed_at_berkeley","QC_Books","Hackers@Berkeley","CS_Jobs_List","PennApps_2013_Suggestions","Idea_Mapping_People","CSM","Github","Tai_Chi","Possible_Intercontinental_Hackathon_Sponsors","africa_entrepreneurship\n","Things_you_didn\\'t_know_existed_at_Stanford","Urban_Farming","Things_Jacob_got_Better_at_This_Summer_(2013)","kodofkas","Hacker_Dojo","Collaborative_knowledge_space_tools","Cornell_POPSHOP_cs_ops","ConceptNet_Projects","Talks_by_paul_graham","St._Catz_Oxford_Suggestions","Teas","Computer_Tricks","Interfaces_to_explore_graphs","Social_Enterprise_Projects_at_Oxford","Suggestions_for_Stanford_in_Oxford","Stanford\n","Projects_related_to_ideaflow","Harvard_Public_Safety_Hackathon_Ideas","Harvard_Public_Safety_Hackathon_Ideas\n","ritik\n","toys\n","Old_Technology_Ideas_that_Should_Exist_by_Now\n","Instadefine.com\n","Dragon_NaturallySpeaking","This_tool\n","Cookies\n","W3C\n","VW_Suggestions\n","Possible_users_of_this_system\n","ideas.pikans.org","Oxford\n","heroku","Google","Apple\n","Carr\\'s","MIT_VW_Hackathon\n","Cambridge,_MA","MIT_Student_Government_and_Adminstration\n","MIT_Scripts\n","RSI\n","~jcole\n","Features_for_stickyricelove.com\n","Chocolate\n","Wire_and_String_Open_Gestalts\n","\n","kjl\n","test_\n","Testing_purposes\n","Test\n","What\n","~David\n","New_Box\n","Stickyricelove.com","~emperorcj@gmail.com","bloop"];
+map_tags = ["MA_State_Government","MIT","Princeton_","MIT_ADPhi","MA_State_Budget","MIT_Elections_Committee","MIT_2030","MIT_2030_Student_Center_Renovation_Ideas","Harvard","Harvard_Eliot_House","#person_jcole","Quote_Board","Hackathon_Project_Ideas","Foods_Chase_Likes","MIT_Complaints_-_Why_thought_of_transferring_out","MIT_Opportunities_-_Why_thought_of_transferring_in","MIT_People\\'s_Stories","If_I_went_to_MIT_(or_other_top_college)_I_would...","Greater_Boston_Area","MIT_SIPB","Coolest_things_in_the_world","Rice","AngelHack_Boston_2013","Aptonym","Books_for_Jacob","Del_Mar_Terrace","TZ_MIT_Hackathon","Stanford_HUMBIO_183:_Astrobiology_&amp;_Space_Exploration","Compass","Leap_Motion_Project_Ideas","Web_Dev_Resources","Greylock_Hackfest_Ideas","Foods","jmjmkj_klm","_k_k_kkmlkmlkmlmkmlkmlmlmlkmmlmlmlkmlmlkm","wutttttt","Palo_Alto","Words_that_are_Good","Jacob","Stanford_Class_Recs","testing_1_2_3\n","Suggestions_for_Asana","Meditation-inducing_thoughts","dropbox_hack_week\n","Phoenix_Dinner_Event_8\/3\/13","Idea_of_the_Day","Internet_of_Things\n","Knowledge_Structuring_Problems","Tanzania","ADHD","Quadrotor.tk","Quadrotor_Ideas","Quadrotor_Drone_Ideas","DIY_Entertainment","MIT_Classes","Harvard_Classes","Test","Test","things_you_didnt_know_existed_at_berkeley","QC_Books","Hackers@Berkeley","CS_Jobs_List","PennApps_2013_Suggestions","Idea_Mapping_People","CSM","Github","Tai_Chi","Possible_Intercontinental_Hackathon_Sponsors","africa_entrepreneurship\n","Things_you_didn\\'t_know_existed_at_Stanford","Urban_Farming","Things_Jacob_got_Better_at_This_Summer_(2013)","kodofkas","Hacker_Dojo","Collaborative_knowledge_space_tools","Cornell_POPSHOP_cs_ops","ConceptNet_Projects","Talks_by_paul_graham","St._Catz_Oxford_Suggestions","Teas","Computer_Tricks","Interfaces_to_explore_graphs","Social_Enterprise_Projects_at_Oxford","Suggestions_for_Stanford_in_Oxford","Stanford\n","Projects_related_to_ideaflow","Harvard_Public_Safety_Hackathon_Ideas","Harvard_Public_Safety_Hackathon_Ideas\n","ritik\n","toys\n","Old_Technology_Ideas_that_Should_Exist_by_Now\n","Instadefine.com\n","Dragon_NaturallySpeaking","This_tool\n","Cookies\n","W3C\n","VW_Suggestions\n","Possible_users_of_this_system\n","ideas.pikans.org","Oxford\n","heroku","Google","Apple\n","Carr\\'s","MIT_VW_Hackathon\n","Cambridge,_MA","MIT_Student_Government_and_Adminstration\n","MIT_Scripts\n","RSI\n","~jcole\n","Features_for_stickyricelove.com\n","Chocolate\n","Wire_and_String_Open_Gestalts\n","\n","kjl\n","test_\n","Testing_purposes\n","Test\n","What\n","~David\n","New_Box\n","Stickyricelove.com","~emperorcj@gmail.com","bloop"];
 
-var hash_tags = [ "aaron", "absurdity", "adam-james-davis", "adamjamesdavis", "adventure", "adventures", "advice", "aesthetics", "afterlife", "again-please-xd", "ai", "ai-bots", "ai-poetry", "ai-wisdom", "alex", "allyouisme", "ambigrams", "ambiguous-chemistry-puns", "amusement-park", "anagrams", "anarchy", "animation", "ann", "app", "ar", "arduino", "art", "art-games", "art-implausible", "artificial-brain", "astronomy", "atheism", "audience-participation", "aug", "auggling", "augment-the-animals", "augmented-reality", "awesome", "awesome-phrases", "awesomeness", "backflip-the-earth", "band-name", "beatbot", "beatbox", "beauty", "benevolent-voyeur", "billions-of-bucks", "binaural-beats", "binaural-beats-composition", "biology", "birthdayliberation", "black-holes", "blackhole", "blog", "bmichick", "bodyfunctions", "bots", "brain-control", "burningman", "business-idea", "business-propositions", "business-venture", "business-ventures", "caffeine", "cartoon", "ceachj", "cereal-boxes", "chaos", "chaos-notes", "chaosnotes", "christianity", "christmas", "clanging", "clive", "clive-wearing", "clive-wearings-journals", "clivewearing", "cognition", "cold", "colemak", "comic-book", "compression", "computation", "computer-science", "computers", "computerscience", "consciousness", "consonance", "conversation", "copyright-law", "cornstarch-monsters", "cortexelation", "cortexelus", "creativity", "cs", "cult", "culture", "cute", "cyborg", "cynicism", "dad", "daily", "damn", "dancing", "darkness", "dbd", "death-by-diction", "death-meta", "deathmeta", "deathstep", "default-world", "definitions", "desire", "detameta", "determinism", "dieyoung", "diminished-reality", "directional-sound", "dj", "dnb", "dothecamus", "dreams", "drugs", "drunk", "dsp", "dubstep", "dubstepstep", "east-west", "echonest", "economics", "economy", "edm", "education", "eeg", "ego-death", "electronic-music-aesthetic", "electronic-music-aesthetics", "eliza", "emo", "emotions", "enlightenment", "entp", "epidimelogy", "epiphanies", "epiphony", "eps-are-awesome", "evil", "evil-plans", "evolution", "exercise", "existential", "existentialism", "experience", "experiment", "experiments", "extreme-meditation", "fame", "fap", "fb-movie", "feedintothose", "feelspace", "film", "fractals", "free-will", "friends", "friendship", "fun", "fun-with-language", "fun-with-puns", "game", "games", "geek-patrol", "genesis", "get", "get-neil", "glitch-shaman", "glitching", "go", "god", "godel", "great-death", "great-fucking-questions", "guitar", "hack", "hackers", "hacks", "hair", "happiness", "hijinks", "hipsters", "history", "horrible-clomoids", "hypersispyhus", "hypersisyphus", "hyperspace", "hypnogogia", "i-am-the-mushroom", "i-dont-believe-in-guruism", "idealism", "ideas", "ideas-for-a-future", "identity", "ilovemysunshine", "imagination", "imperialism", "improv", "imreallyawesome", "information-distopia", "interacting-with-society", "interpersonality", "isaac", "jitter", "jk?", "job", "jokes", "journal", "kandi", "kav", "kayla", "kiss", "knots", "lag-music", "language", "larps", "learn", "life", "life-goal", "life-goals", "lifegoal", "light", "list-of-projects-to-do-when-im-70", "lmao", "lmfao", "logic", "lol", "lookingformorequestions", "love", "loveisthesong", "lubbiwub", "machievellianism", "mad-science", "make", "mastery", "math", "math-metal", "max", "max4live", "meaning", "media", "meditation", "mega-man", "memes", "metacognition", "metahelios", "metal", "metaprogramming", "micronaut", "mindbombs", "mom", "momental", "money", "monism", "monk", "monologue", "monotheism", "morality", "motivation", "movie", "mrsans", "muahahahaha", "much-tech", "music", "music-commune", "music-experiments", "music-hack", "music-tech", "music-video", "musical", "musictech", "mystery", "mysticism", "mythology", "narcasm", "narcism", "nate", "naughtibod", "neocortexisms", "net-label", "net-neutrality", "neuroscience", "nice", "nihilism", "nitrous", "noise", "nokids", "non-newtonian-fluid", "noosphere", "nootropic", "nootropics", "nostaligia", "not-my-jokes", "note-to-self", "notebooks", "notes", "nursery", "nz", "obscurity", "odd-jobs", "of-the-sun", "ofthesun", "on", "open-individualism", "open-sorcery", "openindividualism", "organism-environment", "organizing-life", "palindrome", "panpsychism", "parallel-dimensions", "parkour", "pbbfbbjgb", "peanutbutter", "perspectrum", "philosophy", "phosphenes", "physics", "piracetam", "plagiarizeme", "plant-language", "play", "plush", "poems", "poetry", "pogs", "politics", "politik", "polytheism", "postmodernloveppplllllleeeeaaaasse!!!", "prayer", "procrastination", "psychedelevator", "psychedelic-information-theory", "psychic-powers", "psychology", "psychonaug", "psychonaut", "psychopharmocology", "psytrance", "pun", "punchline", "puns", "puns-noticed", "puns-noticed).", "pure-data", "puzzlecore", "puzzlhead", "quantum-computers", "quotes", "racism", "ramblings", "reactive-music", "read", "reality", "reality-tunnels", "remix-what-the-bot-said", "reuben", "rich-asshole", "riot-control", "risset", "risset-rhythms", "rob", "rofl", "romance", "rules", "s", "sanity", "sansa", "sap", "sapolsky", "sarcasm", "sauce", "schizophrenia", "science", "science!", "scooby-snacks", "self-production", "sense", "sept11th", "set-theory", "sex", "shamanism", "shaolin-law", "shirt-ideas", "shirts", "shredding", "singularity", "sispyhus", "sisyphus", "skeevy", "slang", "sleep-deprivation", "sleeping-in-the-shower", "sloppy-arithmetic", "slovos", "social-dynamics", "social-network", "song", "songs", "songs-of-life", "sound", "soundeffects", "ss-sauce", "sssauce", "stories", "story-ideas", "story-time", "strange-loops", "strangeloops", "strobe-goggles", "stroggles", "stumble", "stupid", "subjective-experience", "sunglasses", "sup-dns", "super-blog", "superpowers", "surrealism", "surrealism-for-a-video-game", "surrealist-games", "surround-sound", "synesthesia", "synthesia", "taoism", "tape-measurer", "taxonomy", "tea", "teasing", "tech", "technological", "technological-tripping", "temptattoo", "terence-mckenna", "text-messages", "the-common-joke", "the-great-game", "the-joke-of-the-joke", "the-map", "the-zone", "the-zone.", "things-noticed", "thinking-and-feeling", "thotwater", "thought-experiment", "time", "timelessness-of-beauty", "to-conform-or-not-conform", "to-hack", "to-imagine", "to-listen", "to-read", "todo", "tohack", "tom", "tongue-twist", "toys", "transhuman", "transhumanism", "trent-reznor", "truth", "turns-out", "two-way-mirror-mask", "unconventional-wisdom", "understanding", "universal-declaration-of-awesome", "universe", "vagina", "venn-diagrams", "viruses", "wacky", "weirdom", "what-are-you-on", "what-to-do-when-youre-lucid", "whatif", "word-play", "wrestling", "writing", "wtf", "xeen", "xkcd", "yum", "zen", "zeptonaut", "~", "~"]
+hash_tags = [ "aaron", "absurdity", "adam-james-davis", "adamjamesdavis", "adventure", "adventures", "advice", "aesthetics", "afterlife", "again-please-xd", "ai", "ai-bots", "ai-poetry", "ai-wisdom", "alex", "allyouisme", "ambigrams", "ambiguous-chemistry-puns", "amusement-park", "anagrams", "anarchy", "animation", "ann", "app", "ar", "arduino", "art", "art-games", "art-implausible", "artificial-brain", "astronomy", "atheism", "audience-participation", "aug", "auggling", "augment-the-animals", "augmented-reality", "awesome", "awesome-phrases", "awesomeness", "backflip-the-earth", "band-name", "beatbot", "beatbox", "beauty", "benevolent-voyeur", "billions-of-bucks", "binaural-beats", "binaural-beats-composition", "biology", "birthdayliberation", "black-holes", "blackhole", "blog", "bmichick", "bodyfunctions", "bots", "brain-control", "burningman", "business-idea", "business-propositions", "business-venture", "business-ventures", "caffeine", "cartoon", "ceachj", "cereal-boxes", "chaos", "chaos-notes", "chaosnotes", "christianity", "christmas", "clanging", "clive", "clive-wearing", "clive-wearings-journals", "clivewearing", "cognition", "cold", "colemak", "comic-book", "compression", "computation", "computer-science", "computers", "computerscience", "consciousness", "consonance", "conversation", "copyright-law", "cornstarch-monsters", "cortexelation", "cortexelus", "creativity", "cs", "cult", "culture", "cute", "cyborg", "cynicism", "dad", "daily", "damn", "dancing", "darkness", "dbd", "death-by-diction", "death-meta", "deathmeta", "deathstep", "default-world", "definitions", "desire", "detameta", "determinism", "dieyoung", "diminished-reality", "directional-sound", "dj", "dnb", "dothecamus", "dreams", "drugs", "drunk", "dsp", "dubstep", "dubstepstep", "east-west", "echonest", "economics", "economy", "edm", "education", "eeg", "ego-death", "electronic-music-aesthetic", "electronic-music-aesthetics", "eliza", "emo", "emotions", "enlightenment", "entp", "epidimelogy", "epiphanies", "epiphony", "eps-are-awesome", "evil", "evil-plans", "evolution", "exercise", "existential", "existentialism", "experience", "experiment", "experiments", "extreme-meditation", "fame", "fap", "fb-movie", "feedintothose", "feelspace", "film", "fractals", "free-will", "friends", "friendship", "fun", "fun-with-language", "fun-with-puns", "game", "games", "geek-patrol", "genesis", "get", "get-neil", "glitch-shaman", "glitching", "go", "god", "godel", "great-death", "great-fucking-questions", "guitar", "hack", "hackers", "hacks", "hair", "happiness", "hijinks", "hipsters", "history", "horrible-clomoids", "hypersispyhus", "hypersisyphus", "hyperspace", "hypnogogia", "i-am-the-mushroom", "i-dont-believe-in-guruism", "idealism", "ideas", "ideas-for-a-future", "identity", "ilovemysunshine", "imagination", "imperialism", "improv", "imreallyawesome", "information-distopia", "interacting-with-society", "interpersonality", "isaac", "jitter", "jk?", "job", "jokes", "journal", "kandi", "kav", "kayla", "kiss", "knots", "lag-music", "language", "larps", "learn", "life", "life-goal", "life-goals", "lifegoal", "light", "list-of-projects-to-do-when-im-70", "lmao", "lmfao", "logic", "lol", "lookingformorequestions", "love", "loveisthesong", "lubbiwub", "machievellianism", "mad-science", "make", "mastery", "math", "math-metal", "max", "max4live", "meaning", "media", "meditation", "mega-man", "memes", "metacognition", "metahelios", "metal", "metaprogramming", "micronaut", "mindbombs", "mom", "momental", "money", "monism", "monk", "monologue", "monotheism", "morality", "motivation", "movie", "mrsans", "muahahahaha", "much-tech", "music", "music-commune", "music-experiments", "music-hack", "music-tech", "music-video", "musical", "musictech", "mystery", "mysticism", "mythology", "narcasm", "narcism", "nate", "naughtibod", "neocortexisms", "net-label", "net-neutrality", "neuroscience", "nice", "nihilism", "nitrous", "noise", "nokids", "non-newtonian-fluid", "noosphere", "nootropic", "nootropics", "nostaligia", "not-my-jokes", "note-to-self", "notebooks", "notes", "nursery", "nz", "obscurity", "odd-jobs", "of-the-sun", "ofthesun", "on", "open-individualism", "open-sorcery", "openindividualism", "organism-environment", "organizing-life", "palindrome", "panpsychism", "parallel-dimensions", "parkour", "pbbfbbjgb", "peanutbutter", "perspectrum", "philosophy", "phosphenes", "physics", "piracetam", "plagiarizeme", "plant-language", "play", "plush", "poems", "poetry", "pogs", "politics", "politik", "polytheism", "postmodernloveppplllllleeeeaaaasse!!!", "prayer", "procrastination", "psychedelevator", "psychedelic-information-theory", "psychic-powers", "psychology", "psychonaug", "psychonaut", "psychopharmocology", "psytrance", "pun", "punchline", "puns", "puns-noticed", "puns-noticed).", "pure-data", "puzzlecore", "puzzlhead", "quantum-computers", "quotes", "racism", "ramblings", "reactive-music", "read", "reality", "reality-tunnels", "remix-what-the-bot-said", "reuben", "rich-asshole", "riot-control", "risset", "risset-rhythms", "rob", "rofl", "romance", "rules", "s", "sanity", "sansa", "sap", "sapolsky", "sarcasm", "sauce", "schizophrenia", "science", "science!", "scooby-snacks", "self-production", "sense", "sept11th", "set-theory", "sex", "shamanism", "shaolin-law", "shirt-ideas", "shirts", "shredding", "singularity", "sispyhus", "sisyphus", "skeevy", "slang", "sleep-deprivation", "sleeping-in-the-shower", "sloppy-arithmetic", "slovos", "social-dynamics", "social-network", "song", "songs", "songs-of-life", "sound", "soundeffects", "ss-sauce", "sssauce", "stories", "story-ideas", "story-time", "strange-loops", "strangeloops", "strobe-goggles", "stroggles", "stumble", "stupid", "subjective-experience", "sunglasses", "sup-dns", "super-blog", "superpowers", "surrealism", "surrealism-for-a-video-game", "surrealist-games", "surround-sound", "synesthesia", "synthesia", "taoism", "tape-measurer", "taxonomy", "tea", "teasing", "tech", "technological", "technological-tripping", "temptattoo", "terence-mckenna", "text-messages", "the-common-joke", "the-great-game", "the-joke-of-the-joke", "the-map", "the-zone", "the-zone.", "things-noticed", "thinking-and-feeling", "thotwater", "thought-experiment", "time", "timelessness-of-beauty", "to-conform-or-not-conform", "to-hack", "to-imagine", "to-listen", "to-read", "todo", "tohack", "tom", "tongue-twist", "toys", "transhuman", "transhumanism", "trent-reznor", "truth", "turns-out", "two-way-mirror-mask", "unconventional-wisdom", "understanding", "universal-declaration-of-awesome", "universe", "vagina", "venn-diagrams", "viruses", "wacky", "weirdom", "what-are-you-on", "what-to-do-when-youre-lucid", "whatif", "word-play", "wrestling", "writing", "wtf", "xeen", "xkcd", "yum", "zen", "zeptonaut", "~", "~"]
 
-var person_tags = ["cj","david","jcole","david.furlong@stcatz.ox.ac.uk","undefined","cj@imreallyawesome.com"]
+person_tags = ["cj","david","jcole","david.furlong@stcatz.ox.ac.uk","undefined","cj@imreallyawesome.com"]
 
-var relates_tags = ["fhdsflkdjh fldkjdfs","new idea","sdlfkgjhsfdlgkjh 3gkjdf #dfkhf-gfdjkghfdg #kfjdghkfdghj","lksdjhfg fdsjgh","sflsdkjfhsdk. skjfh dsksdkjhfa sdkjfhds","sdkfhdskjdfhsdkjfhdsf","asdfjhsdfjh--","fhsdkjfhds--skdjfhdskfjh","asdkfjh--aksdjhfkdshjf","skdfjhd-ksjdhf","asdkfjhds","kjhsdfkjds--","sdfkjdhs ksdjfhds kfjhf kjsdhf sdkfhsdfkhdjf skdfj","fhdksfjhds","shkfjskdf ds--","dkfjsghfkdgj","sdfkjhdf kgjhdfg kdfjgf---","sdkjhds","kjhk ksjdfhds kjh","@MA_State_Government","hkjhkjhjkh","blah","hlkjsdhflskdfgjhfdglkdsjfh","fdhsfjkdsfh @dsfkjsdhf dfs @sdfkjhfds h#hsdfkdsjfhds asdkfjh #dfksjhdf #sdfhkj@d","@balh","blerkfdgjhfdkj","dhit","dihi","sd","cs","#fsjdflskdfl;jksdfjsd","#qu","#ter","#te #o #d #e","#dvfurlong@gmail.com","~david.furlong@stcatz.ox.ac.uk","david.furlong@stcatz.ox.ac.uk","testing12345ok","#greatsuccess dsglkjsflkgjdldkfglk #greatsuccess","#1 #2","#1 #1","#test #123","#new #new","#new","question#test","test #test","#test","https://www.google.com/calendar/event?action=VIEW&eid=bDg0MDE1YnR0ZmJpYjUyY3","#test","www.david.com#yolowww.david.com#yolo.noteven","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php_admin?f¢4tf","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php","ww.test.com","www.david.com","test","sweet","http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/stickyricelove/publi","@Rice #goal @MIT #idea ~David #complaint Sweeet","@testing_1_2_3","@Testing_purposes new","@MIT_Complaints_-_Why_thought_of_transferring_out","#@ox.ac.uk ~dvfurlong@gmail.com #goal Sweet","#","~dvfurlong@gmail.com","~jacob.cole@stcatz.ox.ac.uk","jacob.cole@stcatz.ox.ac.u","david.furlong@stcatz.ox.ac.uk","dvfurlong@googlemail.com","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php","www.davidfurlong.com","www.","test@gmail.com","~jacob.cole@stcatz.ox.ac.uk","www.davidfurlong.github.io/hackKings/Website","#complaint","#yolo","~David","~David","~David","~David","~David","~David","~David","Sweet idea bro","new idea","new Idea","new","New Idea","new","New","New idea","#in","~jacob.cole@stcatz.ox.ac.uk/test/new","~jacob.cole@stcatz.ox.ac.uk","#@ox.ac.uk","#1.2.3.4","#test","test ~jacob.cole@stcatz.ox.ac.uk","~jacob.cole@stcatz.ox.ac.uk","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Traffic Guru","Maglev Personal Rapid Transit","Utopia","Happiness","Health","Prosperity","Tranquility","Citizens and government can concisely communicate ideas","in the digital age, no one has time for town hall","citizens can't communicate their good ideas","leaders can't communicate their good ideas","0% obesity rate","0% crime rates","0% gang-related crime in Springfield, MA","Apply social network analysis counterinsurgency ta","Rehabilitate homeless population","100% employment","100% high school completion rate","Big Dig","Abundant, fulfilling work-play"]
+relates_tags = ["fhdsflkdjh fldkjdfs","new idea","sdlfkgjhsfdlgkjh 3gkjdf #dfkhf-gfdjkghfdg #kfjdghkfdghj","lksdjhfg fdsjgh","sflsdkjfhsdk. skjfh dsksdkjhfa sdkjfhds","sdkfhdskjdfhsdkjfhdsf","asdfjhsdfjh--","fhsdkjfhds--skdjfhdskfjh","asdkfjh--aksdjhfkdshjf","skdfjhd-ksjdhf","asdkfjhds","kjhsdfkjds--","sdfkjdhs ksdjfhds kfjhf kjsdhf sdkfhsdfkhdjf skdfj","fhdksfjhds","shkfjskdf ds--","dkfjsghfkdgj","sdfkjhdf kgjhdfg kdfjgf---","sdkjhds","kjhk ksjdfhds kjh","@MA_State_Government","hkjhkjhjkh","blah","hlkjsdhflskdfgjhfdglkdsjfh","fdhsfjkdsfh @dsfkjsdhf dfs @sdfkjhfds h#hsdfkdsjfhds asdkfjh #dfksjhdf #sdfhkj@d","@balh","blerkfdgjhfdkj","dhit","dihi","sd","cs","#fsjdflskdfl;jksdfjsd","#qu","#ter","#te #o #d #e","#dvfurlong@gmail.com","~david.furlong@stcatz.ox.ac.uk","david.furlong@stcatz.ox.ac.uk","testing12345ok","#greatsuccess dsglkjsflkgjdldkfglk #greatsuccess","#1 #2","#1 #1","#test #123","#new #new","#new","question#test","test #test","#test","https://www.google.com/calendar/event?action=VIEW&eid=bDg0MDE1YnR0ZmJpYjUyY3","#test","www.david.com#yolowww.david.com#yolo.noteven","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php_admin?f¢4tf","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php","ww.test.com","www.david.com","test","sweet","http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/stickyricelove/publi","@Rice #goal @MIT #idea ~David #complaint Sweeet","@testing_1_2_3","@Testing_purposes new","@MIT_Complaints_-_Why_thought_of_transferring_out","#@ox.ac.uk ~dvfurlong@gmail.com #goal Sweet","#","~dvfurlong@gmail.com","~jacob.cole@stcatz.ox.ac.uk","jacob.cole@stcatz.ox.ac.u","david.furlong@stcatz.ox.ac.uk","dvfurlong@googlemail.com","http://localhost/GestaltBox/public_html/index.1.7_suggestionbox.php","www.davidfurlong.com","www.","test@gmail.com","~jacob.cole@stcatz.ox.ac.uk","www.davidfurlong.github.io/hackKings/Website","#complaint","#yolo","~David","~David","~David","~David","~David","~David","~David","Sweet idea bro","new idea","new Idea","new","New Idea","new","New","New idea","#in","~jacob.cole@stcatz.ox.ac.uk/test/new","~jacob.cole@stcatz.ox.ac.uk","#@ox.ac.uk","#1.2.3.4","#test","test ~jacob.cole@stcatz.ox.ac.uk","~jacob.cole@stcatz.ox.ac.uk","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem","Traffic Guru","Maglev Personal Rapid Transit","Utopia","Happiness","Health","Prosperity","Tranquility","Citizens and government can concisely communicate ideas","in the digital age, no one has time for town hall","citizens can't communicate their good ideas","leaders can't communicate their good ideas","0% obesity rate","0% crime rates","0% gang-related crime in Springfield, MA","Apply social network analysis counterinsurgency ta","Rehabilitate homeless population","100% employment","100% high school completion rate","Big Dig","Abundant, fulfilling work-play"]
 
 showAutocompletePopup = function(cm, tokentype) {
   if(tokentype == null){
@@ -50,36 +51,30 @@ showAutocompletePopup = function(cm, tokentype) {
 
 
 
-
-
-var cm = null; 
-var htmlNode = null;
-var submitWidget = null;
-window.onload = function() {
-  
-  var thoughts = document.getElementById("thoughts");
-  thoughts.value = "#hashtag @suggestionbox ~person http://imreallyawesome.com\n<>343\"related idea\" <-- notice that the text functions as one atomic element, you can't break it down and edit it in the middle, and the whole thing deletes at once. \nClick it to expand, click again to collapse\n\n\nOnly the first @suggestionbox for each idea gets [submit]!\nThe whole idea highlights red on mouseover!\nOn submit the idea turns into a related idea tag\n\n\nNew ideas are separated by two blank lines!\n\n\nnew idea with alternating bgcolor!!!\n   \n   \nnotice that the two lines above have spaces, still counts as blank\n\n#newidea if it starts with a #hashtag, one blank line is sufficient\n\n@nuhacks hack the planet\n\nattached to this line a line widget! hr! block element!   \n\n\n\nbelow this is an h1, the lines below it make room for its height\nnotice that the cursor skips over it when you move it with arrow keys\n\n\n\n\nHIERARCHICAL Thoughtstreaming\n\tIDEA: Hm. The hierarchical note taking tool: what if it doesn't submit all ideas, but just hash-tagged ideas? \n\t\tSOCRATES: Why would I ever want to not submit ideas to the database?\n\t\tALT-IDEA: Submit everything, then filter during the search process (i.e. hash-tag only)\n\t\t\tREFUTE: We want to lower the memory demands.\n\t\t\t\tREFUTE: ideas take up like no space it's fine; submit everything b/c we want to be able to do more powerful search.\n\tJustify\n\t\tOBSERVATION: I just started a debate in my notes. \n\t\tIDEA: What if I worked justify-like language into the thoughtstreamer? \n\t\t\tREFUTE: It will get confusing.\n\t\tIDEA: socratesbot automatically auto-fills questions to ask myself, based on context clues.\n\t\t\tSOCRATES: What clues?\n\t\t\t\tHYPOTHESIS: I don't know yet, I'd have to test out taking notes like this until clear patterns emerge which have clear needs. \n\tClear patterns emerging which have clear needs. \n\t\tKeyboard Poweruser Flow\n\t\t\tI should be able to do everything without lifting my hands off the keys\n\t\t\tKey commands for everything, including all GUI interactions.  \n\t\tHierarchies. SUPER definitely. \n\t\t\tWhat if I want one element of the hierarchy to include multiple lines? \n\t\t\t\tI could just have each line be a child, and the parent shall title the whole element.\n\t\t\t\t\tREFUTE: Sometimes I don't want that. \n\t\t\t\t\t\tWhen? \n\t\t\t\t\t\t\tWhen copying text from article. \n\t\t\t\t\t\t\tWhen writing narrative/story/blog\n\t\t\t\t\t\t\tWhen making visual diagram where the whole thing needs to be connected. \n\t\t\t\t\t\t\t\tASCII art\n\t\t\t\t\t\t\t\tTables\n\t\t\t\t\t\t\tWhen I don't want an arbitrary line in the middle to have children\n\t\t\t\t\t\t\tWhen I want to write an email, submit an idea, or execute a command with multiple lines. \n\t\t\t\tDo I use two kinds of line breaks? \n\t\t\t\t\tDifferent ASCII characters?\n\t\t\t\t\t\t\\r is new element\n\t\t\t\t\t\t\\n means new line with existing element\n\t\t\t\tEnter to make new element, shift+enter to add new line to existing element\n\t\tLinks. \n\t\t\tMaking a link\n\t\t\t\t1. Highlight text, key command. \n\t\t\t\t2. Search for idea (or filter) to connect.\n\t\t\tClicking a link\n\t\tNumbered lists\n\t\t\tIf all siblings under a parent start with \"#. \", and any of the numbers are out of order, it will automatically fix the order. The text is altered with deletion/insertion.  \n\tAwesome CodeMirror functions\n\t\tmarkText\n\t\t\tatomic: true\n\t\t\t\tTREAT a block of text as a single object. Can't be edited in the middle. Deleted all at once. \n\t\t\treadOnly: true\n\t\t\t\tThe text can't be destroyed! Resets the history, too. \n\t\t\t\tTHIS would be helpful for PUBLIC-commenting. \n\tOMG i already want to be using my thoughtstream tool and not SUBLIME text anymore\n";
-
-  cm = CodeMirror.fromTextArea(thoughts, {
-    mode: "xn",
-    /*theme: "monokai",*/
-    lineNumbers: true,
-    lineWrapping: true,
-    firstLineNumber: 0,
-    foldGutter: true,
-    smartIndent: true,
-    autoFocus: true,
-    indentWithTabs: true,
-    indentUnit: 4,
-    /*styleActiveLine: true,*/
-    tabSize: 4,
+ 
+cm = null; 
+htmlNode = null;
+submitWidget = null;
+configureCM = function(codemirror) {
+  cm = codemirror;
+  cm.setOption("mode", "xn")
+  cm.setOption("lineNumbers", true)
+  cm.setOption("lineWrapping", true)
+  cm.setOption("firstLineNumber", 0)
+  cm.setOption("foldGutter", true)
+  cm.setOption("smartIndent", true)
+  cm.setOption("autoFocus", true)
+  cm.setOption("indentWithTabs", true)
+  cm.setOption("indentUnit", 4)
+  /*styleActiveLine: true,*/
+  cm.setOption("tabSize", 4)
     /*workTime: 1,
     workDelay: 1,
     pollInterval: 10,
     historyEventDelay: 10,*/
     //cursorHeight: 0.75, /* changed because of line padding */
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-    extraKeys: {
+  cm.setOption("gutters", ["CodeMirror-linenumbers", "CodeMirror-foldgutter"])
+  cm.setOption("extraKeys", {
       "Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); },
       "Ctrl-W": function(cm){ 
             cm.operation(function() {
@@ -126,7 +121,7 @@ window.onload = function() {
           return CodeMirror.Pass;
         },
       }
-  });
+  );
 
   cm.hintOpen = false
   cm.on("startCompletion", function(target, name){
@@ -139,8 +134,16 @@ window.onload = function() {
   function makeRelatedIdeaObjects(line){
     // Turn <>ID"title" text into related idea objects
     var lineNumber = cm.getLineNumber(line);
-    for(var i=0; i<line.styles.length; i++){
-      var s = line.styles[i] // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
+    //console.log("makeRelatedIdeaObjects", line.styles)
+    // strange bug
+    /*for (var attr in line) {
+        if (line.hasOwnProperty(attr)) console.log(attr,": ",line[attr])
+    }*/
+    //console.log("..", line['styles'], line.styles)
+    if(!line.styles) return;
+
+    for(var i=0; i<line['styles'].length; i++){
+      var s = line.styles[i].toString().trim() // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
       if(s == "xn-relatestag"){
         if(i>=3){
           beginCh = line.styles[i-3]
@@ -275,7 +278,7 @@ window.onload = function() {
       var lineNumber = cm.getLineNumber(line);
       if(line.styles){
         for(var i=0; i<line.styles.length; i++){
-          var s = line.styles[i] // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
+          var s = line.styles[i].toString().trim() // search line.styles for the relates tags added by the mode parser (mode-thoughtstream.js)
           if(s == "xn-maptag"){
             if(i>=3){
               beginCh = line.styles[i-3]
@@ -359,6 +362,7 @@ window.onload = function() {
   function findTopAndBottomOfTheIdeaInWhichThisLineIs(line, trimWhitespace){
     var lineNumber = cm.getLineNumber(line);
     var originalLineNumber = lineNumber;
+    //if(!line.styleClasses) return;
     var bgc = line.styleClasses.bgClass; 
     // line number
 
@@ -372,6 +376,8 @@ window.onload = function() {
         lineNumber--;
         break; // no more lines, we're at the bottom of the document (and the idea)
       }
+
+      //if(!lineObj.styleClasses) return;
       bgc = lineObj.styleClasses.bgClass; 
       if(bgc.substring(0,10)=="xn-newidea"){
         lineNumber--;
@@ -453,7 +459,7 @@ window.onload = function() {
       var lineNumber = cm.getLineNumber(line)
       if(line.styles){
         for(var i=0; i<line.styles.length; i++){
-          var s = line.styles[i] 
+          var s = line.styles[i].toString().trim()
           if(s == tagtype){
             if(i>=3){
               beginCh = line.styles[i-3]
@@ -483,9 +489,11 @@ window.onload = function() {
       var line = ideaLines.lines[l]
       if(line.styles){
         for(var i=0; i<line.styles.length; i++){
-          var s = line.styles[i] 
-          if(s == tag){
-            return true;
+          if(line.styles[i]){
+            var s = line.styles[i].toString().trim()
+            if(s == tag){
+              return true;
+            }
           }
         }
       }
@@ -513,15 +521,32 @@ window.onload = function() {
   }
 
   //submitWidget = null; 
-  cm.on("cursorActivity", function(line, changeObjb){
+  cm.on("cursorActivity", function(line, changeObj){
+    if(line.styles==null){ 
+      setTimeout(function(){
+        onCursorActivity(line, changeObj)
+      },1)
+    }else{
+      onCursorActivity(line, changeObj)
+    }
+  });
+  onCursorActivity = function(line, changeObj){
     var lineCh = cm.getCursor("head")
     var lineNumber = lineCh.line;
     var line = cm.getLineHandle(lineNumber);
     //lineObj.styleClasses.bgClass = "";
 
-    console.log("cursorActivity", lineNumber);
+    // weird bug that appeared when I started using sharejs
+    // after a keystroke, the line object is still not updated
+    // the event handler gets called before the line object updates
+    // so i need to wait 1ms
+
 
     var ideaLines = findTopAndBottomOfTheIdeaInWhichThisLineIs(line, "INCLUDETOCURSOR");
+    
+    
+    console.log("cursor",lineNumber)
+    
 
     /*
     for(var l=0; l<ideaLines.lines.length; l++){
@@ -629,7 +654,7 @@ window.onload = function() {
     }*/
 
     //submitWidget = cm.addLineWidget(lineNumber,buttonNode, {showIfHidden: true })
-  })
+  }
 
 
 
@@ -748,12 +773,14 @@ window.onload = function() {
   });
 };
 
+
+
 // return true if line contains query
 function searchLineForQuery(line, val){
   return line.text.indexOf(val)>-1;
 }
 
-var filteredLineMarks = []
+filteredLineMarks = []
 function filterViewOfThoughtstream(val){
   // for each line, hide
 
@@ -886,3 +913,5 @@ function filterViewOfThoughtstream(val){
     //console.log(filteredLineMarks)
   }
 }
+
+

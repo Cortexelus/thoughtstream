@@ -4,3 +4,4 @@ Meteor.methods
   deleteDocument: (id) ->
     Documents.remove(id)
     ShareJS.model.delete(id) unless @isSimulation # ignore error
+

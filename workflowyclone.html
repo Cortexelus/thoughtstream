@@ -28,54 +28,6 @@
 
   <script src="jquery-2.1.1.js"></script>
 
-  <style type="text/css">
-    html { height: 100%; }
-    body { 
-      margin: 0; padding: 0; height: 100%; 
-      color: rgb(203, 203, 203); 
-      background-color: rgb(30, 29, 26);
-      font-family: courier;
-    }
-    /* Height / width / positioning can be customized for your use case.
-       For demo purposes, we make firepad fill the entire browser. */
-    .CodeMirror {
-      position: absolute; left: 0; top: 34px; bottom: 0; right: 0; height: auto;
-      background-color: rgb(30, 29, 26);
-      color: rgb(203, 203, 203);
-    }
-
-    .CodeMirror div.CodeMirror-cursor{
-      border-left: 1px solid white;
-    }
-    .CodeMirror-gutters{
-      background-color: inherit;
-      border: inherit;
-    }
-    .CodeMirror-linenumber{
-      color: #808080;
-    }
-
-    #filter {
-      height: 23px; width: 400px; margin: 2px; border: 2px solid #222; background-color: #333;
-      color: inherit;
-    }
-
-    #top {
-      position: absolute; left: 0px; top: 0px; width: 100%; height: auto;
-    }
-    .CodeMirror-linewidget{
-      overflow-y: hidden;
-    }
-
-
-
-    .CodeMirror {border-top: 0px solid black; border-bottom: 0px solid black;}
-    #upvote {margin-left: 4px; border: 3px #999 solid; background-color: #ddd; padding: 7px;}
-
-    /*.cm-tab { text-indent: initial;}*/
-    .CodeMirror pre > * { text-indent: 0px; }
-
-  </style>
 </head>
 
 <body>
@@ -135,7 +87,6 @@ showAutocompletePopup = function(cm, tokentype) {
     // show no hints
   }
 }
-
 
 
 

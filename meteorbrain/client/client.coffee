@@ -52,9 +52,10 @@ Template.editor.cm = -> Session.equals("editorType", "cm")
 
 Template.editor.configCM = ->
   (cm) ->
-    cm.setOption("theme", "default")
-    cm.setOption("mode", "xn")
-    cm.setOption("lineNumbers", true)
-    cm.setOption("lineWrapping", true)
-    cm.setOption("smartIndent", true)
-    cm.setOption("indentWithTabs", true)
+    configureCM(cm)
+
+
+
+
+
+

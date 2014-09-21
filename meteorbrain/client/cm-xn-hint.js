@@ -1,5 +1,7 @@
-(function() {
-  "use strict";
+
+
+
+	//console.log("cm-xn-inside",base10_to_base64)
 
   var Pos = CodeMirror.Pos;
 
@@ -64,4 +66,3 @@
       to: replaceToken ? Pos(cur.line, token.end) : cur
     };
   };
-})();

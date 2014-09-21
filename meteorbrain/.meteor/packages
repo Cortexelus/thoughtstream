@@ -10,3 +10,5 @@ coffeescript
 stylus
 mizzao:sharejs
 mizzao:bootstrap-3
+iron:router
+
