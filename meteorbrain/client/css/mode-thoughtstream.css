@@ -15,6 +15,8 @@
 	cursor: pointer;
 }
 
+
+
 .ideaExpansion { 
 	padding-left: 21px;
 	padding-top: 0px;
@@ -96,6 +98,10 @@ color: #000000; background: none; overflow: hidden; page-break-after: avoid; fon
 
 .ideaAboutToBeSubmitted {
 	background-color:rgb(90, 26, 26);
+}
+
+.greyOutLineSubmitting {
+	color: rgb(180, 26, 26);
 }
 
 .cm-xn-link { color: #48c;  } 

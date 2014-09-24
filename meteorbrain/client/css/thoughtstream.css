@@ -6,7 +6,7 @@ body {
 }
 
 
-body, button, .CodeMirror pre, input{ 
+body, button, .CodeMirror pre, input, .CodeMirror.submitIdeaButton{ 
   font-family: Open Sans, arial, sans-serif, comic sans ms;
   font-weight: 200;
   line-height: 1.2em;

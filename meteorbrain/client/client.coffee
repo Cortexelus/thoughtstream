@@ -25,7 +25,7 @@ Template.docTitle.title = ->
 
 Template.docTitle.editorType = (type) -> Session.equals("editorType", type)
 
-Template.editor.docid = ->
+Template.editor._id = ->
   Session.get("document")
 
 Template.editor.events =

@@ -2,7 +2,19 @@
   <title>Thoughtstream</title>
 </head>
 
+
 <template name="main">
+    <div class="container full-height">
+        <h1>Thoughtstream</h1>
+        <div>
+            <P>
+                Create a new thoughtstream by going to a new url <a href="/d/mythoughtstream">/d/mythoughtstream</a>
+            </P>
+        </div> 
+    </div>
+</template>
+
+<template name="docs">
     <div class="container full-height">
         <div class="row upper">
             <div class="col-xs-3 full-height">
@@ -22,13 +34,13 @@
     {{> docItem}}
     {{/each}}
     </ul>
-    <h3>...or start a new one:</h3>
-    <button class="btn btn-warning">New document</button>
+    <!-- <h3>...or start a new one:</h3>
+    <button class="btn btn-warning">New document</button> -->
 </template>
 
 <template name="docItem">
     <li class="{{#if current}}active{{/if}}">
-         <a href="#">{{title}} {{_id}}</a>
+        <a href="/d/{{_id}}">{{title}}</a>
     </li>
 </template>
 
@@ -45,7 +57,7 @@
 
 <template name="docTitle">
     <div id="top">
-            <!-- <input type="search" id="filter" placeholder="Filter notes" /> -->
+            <input type="search" id="filter" placeholder="Filter notes" /> 
             <span id="submitButtonTopNav"></span>
           </div>
 

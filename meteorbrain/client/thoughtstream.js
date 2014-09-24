@@ -1,7 +1,7 @@
 
 /* CONFIG */
 _CONFIG = {
-  submitButton: "topNav", /* endOfIdea, topNav */
+  submitButton: "topNav", /* endOfIdea, topNav, [withMapTag] */
   hierarchy: { 
     strictIndentation: false, // if true, too many indents will break the whole hierarchy; if false, hierarchy will partial break until finds line with proper indentation
     strictBlankLines: true // blank lines between parent and child will break hierarchy
@@ -209,31 +209,62 @@ configureCM = function(codemirror) {
   function submitIdeaToProjectsDatabase(lineNumber){
     var ideaLines = findTopAndBottomOfTheIdeaInWhichThisLineIs(cm.getLineHandle(lineNumber), "INCLUDETOCURSOR");
     var ideaText = getIdeaText(ideaLines.lines);
+    var ideaTitle = titleFromText(ideaText);
     // grey out text, make it read-only
 
+    var mark = cm.markText(
+          {line: ideaLines.top, ch: 0},
+          {line: ideaLines.bottom, ch: 80}, 
+          {className: "greyOutLineSubmitting", atomic: true})
+
     // regex through ideaText for all map tags
-    var maps = allTagsOfType(ideaLines, "xn-maptag");
+    var maptags = allTagsOfType(ideaLines, "xn-maptag");
+    var maps = _.map(maptags, function(m){return m.text})
 
-    // for()
-      // find equivalent map_id for each map tag
+    var successfulSubmissions = 0;
+    // find equivalent map_id for each map tag
+    // ajax request to project page. 
+    $.ajax({ 
+      url: "http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/ideajoin/public_html/ajax/get_or_make_post_ideamaps.php?mapid=0&newpost=", 
+      dataType: "json"
+    }).done(function(data){
+        //console.log(data);
+        var mapsToPublish = _.filter(data, function(m){return _.contains(maps, "@"+m.mapname.replace(/\s/g,"_")) })
+        //console.log(mapsToPublish)
+        var mapIDsToPublish = _.map(mapsToPublish, function(m){ return m.mapid })
+        if(mapIDsToPublish.length==0){
+          alert("Suggestion box "+maps[0]+" does not exist")
+          mark.clear()
+        }else{
+          _.each(mapIDsToPublish, function(mapid){
+            $.ajax({ 
+              url: "http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/ideajoin/public_html/ajax/get_or_make_post.php",
+              type: "GET",
+              data: {mapid: mapid, newpost: ideaText, ideatitle: ideaTitle, uid: ""},
+              dataType: "json"
+            }).done(function(response){
+                console.log(response);
+                successfulSubmissions++;
+                if(successfulSubmissions==1){
+                  // if at least one submission was successful, delete text, replace with thing
+                  mark.clear()
+                  emptyLines(ideaLines.top, ideaLines.bottom)
+                  var id = response.flatPosts[0].pid
 
-      // ajax request to project page. 
+                  cm.replaceRange("<>"+id+"\""+ideaTitle+"\"",{line:ideaLines.top,ch:0})
+                  cm.focus();
 
-      $.ajax({ 
-        url: "http://instadefine.com/IdeaOverflow/Outlinr-PHP/public_html/ideajoin/public_html/ajax/get_or_make_post_ideamaps.php?mapid=0&newpost=", 
-        dataType: "jsonp"
-      }).done(function(data){
-          console.log(data)
-      });
+                }
+            });
+          });
+        }
+    });
       
 
-      // if at least one submission was successful, delete text, replace with thing
-          emptyLines(ideaLines.top, ideaLines.bottom)
-          var ideaTitle = ideaText.substring(0,50).replace(/\n/gm," ").replace(/\"/gm,"");
-
-          cm.replaceRange("<>9999\""+ideaTitle+"\"",{line:ideaLines.top,ch:0})
-          cm.focus();
     // if not successful, renable text, show error
+
+  }
+  function loadIdeaContentFromIdeaJoin(ideaID){
 
   }
   function makeSubmitButtonNode(lineNumber){
@@ -353,6 +384,50 @@ configureCM = function(codemirror) {
     return ideaText;
   }
 
+  function findTitleEnd(idea) {
+      var i1=idea.indexOf("--");
+
+      //var i2=-1;//idea.indexOf(":");
+      var i = i1-2;
+      //var i=Math.min(i1-2,i2-1);
+
+      if(i<0) i=idea.length;
+
+      var titleEnd=Math.min(80,i); // max 80 chars
+      var i4=idea.indexOf(" ",titleEnd); // HACK
+      var i5=idea.indexOf(" ",titleEnd);
+      var i3=idea.indexOf(" ",titleEnd);
+      var iuse = Math.min(Math.min(i4,i3),i5);
+      if(iuse<0){
+        if(i4<0){
+            if(i5<0){
+                if(i3<0){
+                    iuse=idea.length
+                }
+                else{
+                    iuse=i3;
+                }
+            }
+            else{
+                iuse=i5;
+            }
+        }
+        else{
+            iuse=i4;
+        }
+      }
+
+      titleEnd=iuse;//Math.min(titleEnd,i3);
+      return titleEnd;
+  }
+
+  // pulls a truncated title from text
+  function titleFromText(idea){
+    var title = $.trim(idea.substr(0,findTitleEnd(idea)));
+    title = title.replace(/\n/gm," ").replace(/\"/gm,"");
+    return title;
+  }
+
   // finds the idea that this line is in, and returns an object containing the top and bottom line numbers {top: 2, bottom: 4}
   // trimWhitespace
   //   "NONE" :  include all blank lines below the text of the idea 
@@ -449,11 +524,11 @@ configureCM = function(codemirror) {
 
   }
 
-  // returns list of all tag text of type tagtype
+  // returns list of {lineNumber: number, beginCh: number, endCh:number, text:tagtext} for all tags of type tagtype in ideaLines
   // allTagsOfType(ideaLines, "xn-maptag")
   function allTagsOfType(ideaLines, tagtype){
     var lines = ideaLines.lines;
-    var tagtexts = []
+    var tags = []
     for(var l=0;l<ideaLines.lines.length;l++){
       var line = ideaLines.lines[l]
       var lineNumber = cm.getLineNumber(line)
@@ -470,20 +545,24 @@ configureCM = function(codemirror) {
             }else{
               continue;
             }
-            //mapNode.className = "mapNode"; // new styling
-            // filter title change text to <>Title 
             var tagtext = cm.getRange({line: lineNumber, ch: beginCh}, {line: lineNumber, ch: endCh})
-            tagtexts.push(tagtext)
+            tags.push({
+              lineNumber: lineNumber,
+              beginCh: beginCh,
+              endCh: endCh,
+              text: tagtext
+            })
           }
         }
       }
     }
-    return tagtexts
+    return tags
   }
 
-  // returns true if idea has this tag
-  // ideaHasTagSomewhereInIt(ideaLines, "xn-maptag")
-  function ideaHasTagSomewhereInIt(ideaLines, tag){
+  // given an ideaLines, if this idea has this tag in it somewhere, returns the first line with it
+  // else returns false
+  // firstLineInIdeaWithTag(ideaLines, "xn-maptag")
+  function firstLineInIdeaWithTag(ideaLines, tag){
     var lines = ideaLines.lines;
     for(var l=0;l<ideaLines.lines.length;l++){
       var line = ideaLines.lines[l]
@@ -492,7 +571,7 @@ configureCM = function(codemirror) {
           if(line.styles[i]){
             var s = line.styles[i].toString().trim()
             if(s == tag){
-              return true;
+              return ideaLines.lines[l];
             }
           }
         }
@@ -567,12 +646,15 @@ configureCM = function(codemirror) {
     $("#submitButtonTopNav").empty();
 
     if(ideaLines){ // cursor is inside of an idea
-      if(ideaHasTagSomewhereInIt(ideaLines,"xn-maptag")){
+      var firstLineWithMap = firstLineInIdeaWithTag(ideaLines,"xn-maptag");
+      if(firstLineWithMap){
         var buttonNode = makeSubmitButtonNode(ideaLines.bottom);
         if(_CONFIG.submitButton=="endOfIdea"){
           submitWidget = cm.addLineWidget(ideaLines.bottom, buttonNode, {showIfHidden: true })
         }else if(_CONFIG.submitButton=="topNav"){
           $("#submitButtonTopNav").append(buttonNode);
+        }else if(_CONFIG.submitButton=="withMapTag"){
+          addSubmitButtonToFirstMap(firstLineWithMap)
         }
         //highlightIdea(ideaLines);
       }
